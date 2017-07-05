@@ -267,8 +267,14 @@ PlayerSettings:
   switchSocketMemoryPoolSize: 6144
   switchSocketAllocatorPoolSize: 128
   switchSocketConcurrencyLimit: 14
+<<<<<<< HEAD
   switchUseCPUProfiler: 0
   switchApplicationID: 0x0005000C10000001
+=======
+  switchScreenResolutionBehavior: 2
+  switchUseCPUProfiler: 0
+  switchApplicationID: 0x01004b9000490000
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchNSODependencies: 
   switchTitleNames_0: 
   switchTitleNames_1: 
@@ -282,9 +288,12 @@ PlayerSettings:
   switchTitleNames_9: 
   switchTitleNames_10: 
   switchTitleNames_11: 
+<<<<<<< HEAD
   switchTitleNames_12: 
   switchTitleNames_13: 
   switchTitleNames_14: 
+=======
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchPublisherNames_0: 
   switchPublisherNames_1: 
   switchPublisherNames_2: 
@@ -297,9 +306,12 @@ PlayerSettings:
   switchPublisherNames_9: 
   switchPublisherNames_10: 
   switchPublisherNames_11: 
+<<<<<<< HEAD
   switchPublisherNames_12: 
   switchPublisherNames_13: 
   switchPublisherNames_14: 
+=======
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchIcons_0: {fileID: 0}
   switchIcons_1: {fileID: 0}
   switchIcons_2: {fileID: 0}
@@ -312,9 +324,12 @@ PlayerSettings:
   switchIcons_9: {fileID: 0}
   switchIcons_10: {fileID: 0}
   switchIcons_11: {fileID: 0}
+<<<<<<< HEAD
   switchIcons_12: {fileID: 0}
   switchIcons_13: {fileID: 0}
   switchIcons_14: {fileID: 0}
+=======
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchSmallIcons_0: {fileID: 0}
   switchSmallIcons_1: {fileID: 0}
   switchSmallIcons_2: {fileID: 0}
@@ -327,14 +342,21 @@ PlayerSettings:
   switchSmallIcons_9: {fileID: 0}
   switchSmallIcons_10: {fileID: 0}
   switchSmallIcons_11: {fileID: 0}
+<<<<<<< HEAD
   switchSmallIcons_12: {fileID: 0}
   switchSmallIcons_13: {fileID: 0}
   switchSmallIcons_14: {fileID: 0}
+=======
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchManualHTML: 
   switchAccessibleURLs: 
   switchLegalInformation: 
   switchMainThreadStackSize: 1048576
+<<<<<<< HEAD
   switchPresenceGroupId: 0x0005000C10000001
+=======
+  switchPresenceGroupId: 
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchLogoHandling: 0
   switchReleaseVersion: 0
   switchDisplayVersion: 1.0.0
@@ -345,9 +367,15 @@ PlayerSettings:
   switchApplicationErrorCodeCategory: 
   switchUserAccountSaveDataSize: 0
   switchUserAccountSaveDataJournalSize: 0
+<<<<<<< HEAD
   switchAttribute: 0
   switchCardSpecSize: 4
   switchCardSpecClock: 25
+=======
+  switchApplicationAttribute: 0
+  switchCardSpecSize: -1
+  switchCardSpecClock: -1
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchRatingsMask: 0
   switchRatingsInt_0: 0
   switchRatingsInt_1: 0
@@ -361,7 +389,11 @@ PlayerSettings:
   switchRatingsInt_9: 0
   switchRatingsInt_10: 0
   switchRatingsInt_11: 0
+<<<<<<< HEAD
   switchLocalCommunicationIds_0: 0x0005000C10000001
+=======
+  switchLocalCommunicationIds_0: 
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   switchLocalCommunicationIds_1: 
   switchLocalCommunicationIds_2: 
   switchLocalCommunicationIds_3: 
@@ -372,6 +404,18 @@ PlayerSettings:
   switchParentalControl: 0
   switchAllowsScreenshot: 1
   switchDataLossConfirmation: 0
+<<<<<<< HEAD
+=======
+  switchSupportedNpadStyles: 3
+  switchSocketConfigEnabled: 0
+  switchTcpInitialSendBufferSize: 32
+  switchTcpInitialReceiveBufferSize: 64
+  switchTcpAutoSendBufferSizeMax: 256
+  switchTcpAutoReceiveBufferSizeMax: 256
+  switchUdpSendBufferSize: 9
+  switchUdpReceiveBufferSize: 42
+  switchSocketBufferEfficiency: 4
+>>>>>>> b7dc7295a55166224835f61883c7c629b5288b04
   ps4NPAgeRating: 12
   ps4NPTitleSecret: 
   ps4NPTrophyPackPath: 
