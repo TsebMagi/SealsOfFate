@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System;
 
 public class LevelManager : MonoBehaviour {
 	public class Range{
@@ -15,11 +14,11 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
-	public GameObject [][] Walls;
-	public GameObject [][] Enemies;
-	public GameObject [][] Loot;
-	public GameObject [][] Doors;
-	public GameObject [][] Obstacles;
+	public GameObject [] Walls;
+	public GameObject [] Enemies;
+	public GameObject [] Loot;
+	public GameObject [] Doors;
+	public GameObject [] Obstacles;
 
 
   	// Use this for initialization
