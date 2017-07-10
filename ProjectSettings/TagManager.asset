@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Pick Up
+  - Hazard
+  - Wall
+  - Exit
+  - Interaction
   layers:
   - Default
   - TransparentFX
@@ -13,14 +19,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Blocking
+  - Pick Ups
+  - Enemies
+  - Trigger
+  - Player
+  - Overlay
+  - UI_Seals
   - 
   - 
   - 
