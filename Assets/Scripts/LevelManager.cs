@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour {
+	[Serializable]
 
-	// Use this for initialization
+	public GameObject [][] Walls;
+	public GameObject [][] Enemies;
+	public GameObject [][] Loot;
+	public GameObject [][] Doors;
+	public GameObject [][] Obstacles;
+
+
+  	// Use this for initialization
 	void Start () {
 		
 	}

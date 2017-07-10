@@ -9,21 +9,30 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 	private LevelManager levelScript;
-
+	private int currentLevel = 1;
+	public int maxLevel;
 
 	// Use this for initialization
 	void Awake () {
 
-		// Singleton
+		// Singleton Code
 		if(instance == null)
 			instance = this;
 		else if(instance != this)
 			Destroy(gameObject);
-		DontDestroyOnLoad(gameObject)
+		DontDestroyOnLoad(gameObject);
+
+		// Grab the currently attached levelManager script
+		levelScript = GetComponent<LevelManager>();
+		// Setup the level.
+		InitLevel();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+
+	void InitLevel(){
+	}
+
+	public void GameOver(){
 		
 	}
 }
