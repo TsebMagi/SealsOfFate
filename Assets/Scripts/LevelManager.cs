@@ -1,9 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System;
 
 public class LevelManager : MonoBehaviour {
-	[Serializable]
+	public class Range{
+		public int min;
+		public int max;
+
+		Range(int min, int max){
+			this.min = min;
+			this.max = max;
+		}
+	}
 
 	public GameObject [][] Walls;
 	public GameObject [][] Enemies;
