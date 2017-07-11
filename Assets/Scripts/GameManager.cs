@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour {
 		InitLevel();
 	}
 
-
+	public GameManager getInstance(){return instance;}
 	void InitLevel(){
+		levelScript.SetupScene(currentLevel);
 	}
 
 	public void GameOver(){
