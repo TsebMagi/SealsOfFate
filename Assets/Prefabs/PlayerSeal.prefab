@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 95447176933827224}
   m_Layer: 13
   m_Name: PlayerSeal
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   moveTime: 0.1
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   restartLevelDelay: 1
   pointsPerFood: 10
   pointsPerSoda: 20
