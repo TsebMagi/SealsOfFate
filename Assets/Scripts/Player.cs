@@ -40,7 +40,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         private void Update ()
         {
             //If it's not the player's turn, exit the function.
-            //if(!GameManager.instance.playersTurn) return;
+            if(!GameManager.instance.playersTurn) return;
             
             int horizontal = 0;     //Used to store the horizontal move direction.
             int vertical = 0;       //Used to store the vertical move direction.
@@ -70,7 +70,6 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         //AttemptMove takes a generic parameter T which for Player will be of the type Wall, it also takes integers for x and y direction to move in.
         protected override void AttemptMove <T> (int xDir, int yDir)
         {
-            if (!GameManager.instance.playersTurn) return;
             //Every time player moves, subtract from food points total.
             food--;
             
