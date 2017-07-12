@@ -22,7 +22,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
             animator = GetComponent<Animator>();
             
             //Get the current food point total stored in GameManager.instance between levels.
-            food = GameManager.instance.playerFoodPoints;
+            food = GameManager.instance.playerHealth;
             
             //Call the Start function of the MovingObject base class.
             base.Start ();
@@ -33,14 +33,14 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         private void OnDisable ()
         {
             //When Player object is disabled, store the current local food total in the GameManager so it can be re-loaded in next level.
-            GameManager.instance.playerFoodPoints = food;
+            GameManager.instance.playerHealth = food;
         }
         
         
         private void Update ()
         {
             //If it's not the player's turn, exit the function.
-            if(!GameManager.instance.playersTurn) return;
+            //if(!GameManager.instance.playersTurn) return;
             
             int horizontal = 0;     //Used to store the horizontal move direction.
             int vertical = 0;       //Used to store the vertical move direction.
@@ -61,7 +61,8 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
             //Check if we have a non-zero value for horizontal or vertical
             if(horizontal != 0 || vertical != 0)
             {
-
+                AttemptMove<Enemy>(horizontal, vertical);
+                GameManager.instance.playersTurn = false;
             }
         }
         
@@ -69,6 +70,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         //AttemptMove takes a generic parameter T which for Player will be of the type Wall, it also takes integers for x and y direction to move in.
         protected override void AttemptMove <T> (int xDir, int yDir)
         {
+            if (!GameManager.instance.playersTurn) return;
             //Every time player moves, subtract from food points total.
             food--;
             
@@ -88,7 +90,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
             CheckIfGameOver ();
             
             //Set the playersTurn boolean of GameManager to false now that players turn is over.
-            GameManager.instance.playersTurn = false;
+            //GameManager.instance.playersTurn = false;
         }
         
         
