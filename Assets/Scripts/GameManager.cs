@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour {
 	private int currentLevel = 1;
 	public int maxLevel;
 
+	public bool playersTurn = true;
+
+	public int playerFoodPoints;
+
 	// Use this for initialization
 	void Awake () {
 
