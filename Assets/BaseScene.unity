@@ -117,11 +117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.z
@@ -145,11 +145,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780647233420238, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 212665703806811212, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -1800553273
+      objectReference: {fileID: 0}
+    - target: {fileID: 212665703806811212, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114307012318739950, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+        type: 2}
+      propertyPath: blockingLayer.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780647233420238, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
@@ -166,7 +185,7 @@ GameObject:
   - component: {fileID: 1401195147}
   - component: {fileID: 1401195146}
   - component: {fileID: 1401195145}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -236,11 +255,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1401195144}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 4, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1805071817}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1678443511
@@ -280,7 +299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4334807874380840, guid: 1067e80f8d8275241a2b586aee84bfbe, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114508715870727834, guid: 1067e80f8d8275241a2b586aee84bfbe,
         type: 2}
@@ -288,6 +307,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1780647233420238, guid: 84d5fa99bfd488747bf2969b8fa96a23,
         type: 2}
+    - target: {fileID: 114590791460387946, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: playersTurn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114590791460387946, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: playerFoodPoints
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1067e80f8d8275241a2b586aee84bfbe, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1805071817 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+    type: 2}
+  m_PrefabInternal: {fileID: 723018084}

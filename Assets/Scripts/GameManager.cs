@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 
 	public bool playersTurn = true;
 
-	public int playerFoodPoints;
+	public int playerHealth;
 
 	// Use this for initialization
 	void Awake () {
