@@ -5,39 +5,62 @@ using UnityEngine;
 
 // Level Manager for the Seals of Fate Handles creating the level and
 // delegates the room creation 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
-	public static GameManager instance;
-	private LevelManager levelScript;
-	private int currentLevel = 1;
-	public int maxLevel;
+    public static GameManager instance;
+    private LevelManager levelScript;
+    private int currentLevel = 1;
+    public int maxLevel;
 
-	public bool playersTurn = true;
+    public bool playersTurn = true;
 
-	public int playerHealth;
+    private MovingObject[] entitiesToMove;
 
-	// Use this for initialization
-	void Awake () {
+    public int playerHealth;
 
-		// Singleton Code
-		if(instance == null)
-			instance = this;
-		else if(instance != this)
-			Destroy(gameObject);
-		DontDestroyOnLoad(gameObject);
+    // Use this for initialization
+    void Awake()
+    {
 
-		// Grab the currently attached levelManager script
-		levelScript = GetComponent<LevelManager>();
-		// Setup the level.
-		InitLevel();
-	}
+        // Singleton Code
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
 
-	public GameManager getInstance(){return instance;}
-	void InitLevel(){
-		levelScript.SetupScene(currentLevel);
-	}
+        // Grab the currently attached levelManager script
+        levelScript = GetComponent<LevelManager>();
+        // Setup the level.
+        InitLevel();
+    }
 
-	public void GameOver(){
-		
-	}
+    // Handles returning the game control to player and running other entities
+    private void LateUpdate()
+    {
+        // Do State updates here
+        if (!playersTurn)
+        {
+            if (entitiesToMove != null)
+            {
+                //Handle each Entity in the list of entites to move
+                foreach (MovingObject obj in entitiesToMove)
+                {
+
+                }
+            }
+        }
+        playersTurn = true;
+    }
+    public GameManager getInstance() { return instance; }
+    void InitLevel()
+    {
+        levelScript.SetupScene(currentLevel);
+    }
+
+    public void GameOver()
+    {
+
+    }
 }

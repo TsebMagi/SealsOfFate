@@ -51,8 +51,8 @@ public abstract class MovingObject : MonoBehaviour
         if (hit.transform == null)
         {
             //If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
-            StartCoroutine(SmoothMovement(end));
-
+            //StartCoroutine(SmoothMovement(end));
+            rb2D.MovePosition(end);
             //Return true to say that Move was successful
             return true;
         }
