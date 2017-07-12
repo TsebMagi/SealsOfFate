@@ -164,7 +164,7 @@ Prefab:
     - target: {fileID: 114307012318739950, guid: 84d5fa99bfd488747bf2969b8fa96a23,
         type: 2}
       propertyPath: blockingLayer.m_Bits
-      value: 8192
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1780647233420238, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_Layer
