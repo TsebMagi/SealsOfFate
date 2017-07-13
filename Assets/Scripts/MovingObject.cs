@@ -7,12 +7,10 @@ public abstract class MovingObject : MonoBehaviour
 {
     public float moveTime = 0.1f;           //Time it will take object to move, in seconds.
     public LayerMask blockingLayer;         //Layer on which collision will be checked.
-
-
     private BoxCollider2D boxCollider;      //The BoxCollider2D component attached to this object.
     private Rigidbody2D rb2D;               //The Rigidbody2D component attached to this object.
     private float inverseMoveTime;          //Used to make movement more efficient.
-
+    protected bool isMoving;
 
     //Protected, virtual functions can be overridden by inheriting classes.
     protected virtual void Start()
@@ -50,9 +48,9 @@ public abstract class MovingObject : MonoBehaviour
         //Check if anything was hit
         if (hit.transform == null)
         {
+            isMoving = true;
             //If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
-            //StartCoroutine(SmoothMovement(end));
-            rb2D.MovePosition(end);
+            StartCoroutine(SmoothMovement(end));
             //Return true to say that Move was successful
             return true;
         }
@@ -84,6 +82,7 @@ public abstract class MovingObject : MonoBehaviour
             //Return and loop until sqrRemainingDistance is close enough to zero to end the function
             yield return null;
         }
+        isMoving = false;
     }
 
 
