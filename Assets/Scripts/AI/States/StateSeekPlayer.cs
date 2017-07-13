@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /******************************************************************************
- * File     : StateAsleep.cs
- * Purpose  : The state an enemy should be in when out of activation range of
- * the player. It is purposefully very minimal.
+ * File     : StateAlert.cs
+ * Purpose  : The state for an enemy seeking the player.
  * Notes    : 
  ******************************************************************************/
 //Copyright 2017 Andrew Waugh, Licensed under the terms of the MIT license.
-public class StateAsleep : State<Enemy>
+public class StateSeekPlayer : State<Enemy>
 {
-    private static StateAsleep instance = null;
+    private static StateSeekPlayer instance = null;
+
     public override void Enter(Enemy owner)
     {
         return;
@@ -20,6 +20,7 @@ public class StateAsleep : State<Enemy>
 
     public override void Execute(Enemy owner)
     {
+        //owner.SeekPlayer()
         return;
     }
 
@@ -28,12 +29,13 @@ public class StateAsleep : State<Enemy>
         return;
     }
 
-    public static StateAsleep getInstance()
+    public static StateSeekPlayer getInstance()
     {
         if (instance == null)
         {
-            instance = new StateAsleep();
+            instance = new StateSeekPlayer();
         }
+
         return instance;
     }
 }
