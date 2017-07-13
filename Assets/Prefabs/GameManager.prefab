@@ -75,3 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 15
+  playersTurn: 1
+  playerFoodPoints: 100
