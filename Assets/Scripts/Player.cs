@@ -14,7 +14,6 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         private Animator animator;                  //Used to store a reference to the Player's animator component.
         private int food;                           //Used to store player food points total during level.
         
-        
         //Start overrides the Start function of MovingObject
         protected override void Start ()
         {
@@ -40,7 +39,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         private void Update ()
         {
             //If it's not the player's turn, exit the function.
-            if(!GameManager.instance.playersTurn) return;
+            if(!GameManager.instance.playersTurn || isMoving) return;
             
             int horizontal = 0;     //Used to store the horizontal move direction.
             int vertical = 0;       //Used to store the vertical move direction.
@@ -62,7 +61,6 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
             if(horizontal != 0 || vertical != 0)
             {
                 AttemptMove<Enemy>(horizontal, vertical);
-                GameManager.instance.playersTurn = false;
             }
         }
         
@@ -89,7 +87,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
             CheckIfGameOver ();
             
             //Set the playersTurn boolean of GameManager to false now that players turn is over.
-            //GameManager.instance.playersTurn = false;
+            GameManager.instance.playersTurn = false;
         }
         
         
