@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /******************************************************************************
- * File     : StateAlert.cs
+ * File     : StateSeekPlayer.cs
  * Purpose  : The state for an enemy seeking the player.
  * Notes    : 
  ******************************************************************************/
@@ -20,7 +20,7 @@ public class StateSeekPlayer : State<Enemy>
 
     public override void Execute(Enemy owner)
     {
-        //owner.SeekPlayer()
+        owner.SeekPlayer();
         return;
     }
 

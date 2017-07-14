@@ -68,6 +68,6 @@ public class StateMachine<EntityT> {
     private State<EntityT> globalState;     //A global state that is checked every update.
 
     //Properties for states. Note these are only intended for the initial setup.
-    public State<EntityT> CurrentState { get { return this.currentState; } set { currentState = value; } }
+    public State<EntityT> CurrentState { get { return this.currentState; } set { currentState = value; currentState.Enter(owner); } }
     public State<EntityT> GlobalState { get { return this.globalState; } set { globalState = value; } }
 }
