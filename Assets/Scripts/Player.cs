@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;      //Allows us to use SceneManager
+using UnityEngine.SceneManagement;
 
-    //Player inherits from MovingObject, our base class for objects that can move, Enemy also inherits from this.
+    /// <summary>
+    ///   This class contains logic for processing player input and interacting with other relevant
+    ///   GameObjects in the generated scene.
+    /// </summary>
     public class Player : MovingObject
     {
-        public float restartLevelDelay = 1f;        //Delay time in seconds to restart level.
-        public int pointsPerFood = 10;              //Number of points to add to player food points when picking up a food object.
-        public int pointsPerSoda = 20;              //Number of points to add to player food points when picking up a soda object.
-        public int wallDamage = 1;                  //How much damage a player does to a wall when chopping it.
-        
-        
-        private Animator animator;                  //Used to store a reference to the Player's animator component.
-        private int food;                           //Used to store player food points total during level.
+	/// <summary>Delay time in seconds to restart level.</summary>
+        public float restartLevelDelay = 1f;
+	/// <summary>Number of points to add to player food resource when picking up a food object.</summary>
+        public int pointsPerFood = 10;
+	/// <summary>Number of points to add to player food resource when picking up a soda object.</summary>
+        public int pointsPerSoda = 20;
+	/// <summary>How much damage the Player inflicts to the Wall object when it attacks.</summary>
+        public int wallDamage = 1;
+        /// <summary>Stores a reference to the Player's animator component.</summary>
+        private Animator animator;
+	/// <summary>Stores the Player's current food points during the level.</summary>
+        private int food;
         
         //Start overrides the Start function of MovingObject
         protected override void Start ()
