@@ -21,7 +21,9 @@ using UnityEngine.SceneManagement;
 	/// <summary>Stores the Player's current food points during the level.</summary>
         private int food;
         
-        //Start overrides the Start function of MovingObject
+	/// <summary>
+	///   Configures the Player state on entry to the scene.
+	/// </summary>
         protected override void Start ()
         {
             //Get a component reference to the Player's animator component
@@ -34,37 +36,47 @@ using UnityEngine.SceneManagement;
             base.Start ();
         }
         
-        
-        //This function is called when the behaviour becomes disabled or inactive.
+	/// <summary>
+	///   Stores the Player state in the GameManager when the Player GameObject is disabled.
+	///   This is done to carry over the Player state from the current level to the next level.
+	/// </summary>
         private void OnDisable ()
         {
-            //When Player object is disabled, store the current local food total in the GameManager so it can be re-loaded in next level.
+	    // Currently only storing the Player's food
             GameManager.instance.playerHealth = food;
         }
         
-        
+        /// <summary>
+	///   If it's the Player's turn, this method handles updating the Player game logic
+	///   (such as translating player input into movement) on each engine tick. 
+	/// </summary>
         private void Update ()
         {
-            //If it's not the player's turn, exit the function.
+            // If it's not the player's turn, there's no need to process any updates from
+	    // the player.
             if(!GameManager.instance.playersTurn || isMoving) return;
+
+	    // Direction to move along the horizontal axis.
+            int horizontal = 0;
+	    // Direction to move along the vertical axis.
+            int vertical = 0;
             
-            int horizontal = 0;     //Used to store the horizontal move direction.
-            int vertical = 0;       //Used to store the vertical move direction.
-            
-            
-            //Get input from the input manager, round it to an integer and store in horizontal to set x axis move direction
+	    // Receive horizontal (arrow key left/right) input from the Input manager.
             horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
             
-            //Get input from the input manager, round it to an integer and store in vertical to set y axis move direction
+	    // Receive vertical (arrow key up/down) input from the Input manager.
             vertical = (int) (Input.GetAxisRaw ("Vertical"));
-            
-            //Check if moving horizontally, if so set vertical to zero.
+	    // NOTE: horizontal and vertical are cast to ints to round to a whole number.
+
+	    // NOTE: Player movement is limited to exclusively up, down, left, right.
+	    //       Diagonal/omnidirectional movement is restricted.
+	    // If horizontal movement detected, vertical is set to 0 to avoid movement
+	    // along vertical axis.
             if(horizontal != 0)
             {
                 vertical = 0;
             }
             
-            //Check if we have a non-zero value for horizontal or vertical
             if(horizontal != 0 || vertical != 0)
             {
                 AttemptMove<Enemy>(horizontal, vertical);
@@ -73,6 +85,10 @@ using UnityEngine.SceneManagement;
         
         //AttemptMove overrides the AttemptMove function in the base class MovingObject
         //AttemptMove takes a generic parameter T which for Player will be of the type Wall, it also takes integers for x and y direction to move in.
+
+	/// <summary>
+	///   Attempts to move the Player in the direction specified by xDir and yDir. This method will 
+	/// </summary>
         protected override void AttemptMove <T> (int xDir, int yDir)
         {
             //Every time player moves, subtract from food points total.
