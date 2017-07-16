@@ -269,6 +269,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114508715870727834, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4334807874380840, guid: 1067e80f8d8275241a2b586aee84bfbe, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -317,6 +322,12 @@ Prefab:
       propertyPath: playerFoodPoints
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114508715870727834, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: Enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1855614962614306, guid: 68e77259e4be873439f109b9a7292e84,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1067e80f8d8275241a2b586aee84bfbe, type: 2}
   m_IsPrefabParent: 0
