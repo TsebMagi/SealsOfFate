@@ -19,17 +19,3 @@ public abstract class Consumable : MonoBehaviour, IInteractable {
     }
 
 }
-/*
-public class Fish : Consumable {
-
-    public Fish()
-    {
-
-    }
-
-    public void Consume()
-    {
-
-    }
-
-}*/
