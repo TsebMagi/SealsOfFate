@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+
+/// <summary> The levelManager Class handles the level generation for each level </summary>
 public class LevelManager : MonoBehaviour
 {
+    /// <remark> The Range Class can be moved to a Utils collection eventually </remark>
     public class Range
     {
         public int min;
@@ -16,33 +19,32 @@ public class LevelManager : MonoBehaviour
             this.max = max;
         }
     }
+    /// <summary> Number of Columns in the grid that the map will be generated on </summary>
     public int columns;
+    /// <summary> Number of Row in the grid that the map will be generated on </summary>
     public int rows;
+    /// <summary> Collection of Walls to be used for generating the level </summary>
     public GameObject[] Walls;
+    /// <summary> Collection of Floors to be used for generating the level </summary>
 	public GameObject[] Floors;
+    /// <summary> Collection of Enemies to be used for generating the level </summary>
     public GameObject[] Enemies;
+    /// <summary> Collection of Loot to be used for generating the level </summary>
     public GameObject[] Loot;
+    /// <summary> Collection of Doors to be used for generating the level </summary>
     public GameObject[] Doors;
+    /// <summary> Collection of Obstacles to be used for generating the level </summary>
     public GameObject[] Obstacles;
 
+    /// <summary> The Board that is being created </summary>
     private Transform boardHolder;
+    /// <summary> List of Positions in the Grid </summary>
     private List<Vector3> gridPositions = new List<Vector3>();
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    //Clears our list gridPositions and prepares it to generate a new board.
+    /// <summary> Creates a list of coordinates that can be used for level generation </summary>
     void InitialiseList()
     {
-        //Clear our list gridPositions.
+        /// clears our list gridPositions.
         gridPositions.Clear();
 
         //Loop through x axis (columns).
@@ -57,8 +59,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
-    //Sets up the outer walls and floor (background) of the game board.
+    /// <summary> sets up the level </summary>
     void BoardSetup()
     {
         //Instantiate Board and set boardHolder to its transform.
@@ -87,46 +88,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-
-    //RandomPosition returns a random position from our list gridPositions.
-    Vector3 RandomPosition()
-    {
-        //Declare an integer randomIndex, set it's value to a random number between 0 and the count of items in our List gridPositions.
-        int randomIndex = Random.Range(0, gridPositions.Count);
-
-        //Declare a variable of type Vector3 called randomPosition, set it's value to the entry at randomIndex from our List gridPositions.
-        Vector3 randomPosition = gridPositions[randomIndex];
-
-        //Remove the entry at randomIndex from the list so that it can't be re-used.
-        gridPositions.RemoveAt(randomIndex);
-
-        //Return the randomly selected Vector3 position.
-        return randomPosition;
-    }
-
-
-    //LayoutObjectAtRandom accepts an array of game objects to choose from along with a minimum and maximum range for the number of objects to create.
-    void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
-    {
-        //Choose a random number of objects to instantiate within the minimum and maximum limits
-        int objectCount = Random.Range(minimum, maximum + 1);
-
-        //Instantiate objects until the randomly chosen limit objectCount is reached
-        for (int i = 0; i < objectCount; i++)
-        {
-            //Choose a position for randomPosition by getting a random position from our list of available Vector3s stored in gridPosition
-            Vector3 randomPosition = RandomPosition();
-
-            //Choose a random tile from tileArray and assign it to tileChoice
-            GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-
-            //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
-            Instantiate(tileChoice, randomPosition, Quaternion.identity);
-        }
-    }
-
-
-    //SetupScene initializes our level and calls the previous functions to lay out the game board
+    /// <summary> Entry Point for level creation. Sets up the board </summary>
     public void SetupScene(int level)
     {
         //Creates the outer walls and floor.
@@ -145,7 +107,7 @@ public class LevelManager : MonoBehaviour
         //int enemyCount = (int)Mathf.Log(level, 2f);
         int enemyCount = 1;
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        LayoutObjectAtRandom(Enemies, enemyCount, enemyCount);
+        //LayoutObjectAtRandom(Enemies, enemyCount, enemyCount);
 
         //Instantiate the exit tile in the upper right hand corner of our game board
         //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
