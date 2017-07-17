@@ -39,7 +39,7 @@ using UnityEngine.SceneManagement;      //Allows us to use SceneManager
         private void Update ()
         {
             //If it's not the player's turn, exit the function.
-            if(!GameManager.instance.playersTurn || isMoving) return;
+            if(!GameManager.instance.playersTurn || GameManager.getInstance().IsMoving) return;
             
             int horizontal = 0;     //Used to store the horizontal move direction.
             int vertical = 0;       //Used to store the vertical move direction.
