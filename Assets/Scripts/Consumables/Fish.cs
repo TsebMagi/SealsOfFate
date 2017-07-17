@@ -10,12 +10,15 @@ public class Fish : Consumable {
     public Fish()
     {
         Modifier = 1;
-        HealthMod = 20;
+        HealthMod = 5;
     }
 
     public override void Consume()
     {
-        GameManager.instance.playerHealth += HealthMod;
+        //Increases the player's health by 5 * the set modifier for the fish in the unity engine.
+        //Set up this way for ease of generating different "food/fish" consumables that will provide
+        //different amounts of health.
+        GameManager.instance.playerHealth += HealthMod * Modifier;
     }
 
 }
