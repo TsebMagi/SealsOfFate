@@ -48,7 +48,6 @@ public abstract class MovingObject : MonoBehaviour
         //Check if anything was hit
         if (hit.transform == null)
         {
-            isMoving = true;
             //If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
             StartCoroutine(SmoothMovement(end));
             //Return true to say that Move was successful
@@ -66,7 +65,7 @@ public abstract class MovingObject : MonoBehaviour
         //Calculate the remaining distance to move based on the square magnitude of the difference between current position and end parameter. 
         //Square magnitude is used instead of magnitude because it's computationally cheaper.
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-
+        GameManager.getInstance().IsMoving = true;
         //While that distance is greater than a very small amount (Epsilon, almost zero):
         while (sqrRemainingDistance > float.Epsilon)
         {
@@ -82,7 +81,7 @@ public abstract class MovingObject : MonoBehaviour
             //Return and loop until sqrRemainingDistance is close enough to zero to end the function
             yield return null;
         }
-        isMoving = false;
+        GameManager.getInstance().IsMoving = false;
     }
 
 
