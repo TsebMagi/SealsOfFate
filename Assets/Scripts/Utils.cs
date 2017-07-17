@@ -2,7 +2,7 @@
 
 
 /// <summary> The Range Object is a Utility to allow the modeling of a range of int values. </summary>
- public class Range
+ public struct Range
     {
         /// <summary> The min value of the Range </summary>
         public int min;
