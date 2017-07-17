@@ -36,16 +36,27 @@ public class LevelManager : MonoBehaviour
     /// <summary> Collection of Obstacles to be used for generating the level </summary>
     public GameObject[] Obstacles;
 
+    /// <summary> Class that contains the stats for a room </summary>
+    private class RoomStats
+    {
+        public Range xRange;
+        public Range yRange;
+        public Vector2 doorway;
+        public Vector2 [] exits;
+    }
+
     /// <summary> The Board that is being created </summary>
     private Transform boardHolder;
     /// <summary> List of Positions in the Grid </summary>
-    private List<Vector3> gridPositions = new List<Vector3>();
+    private int[,] gridPositions;
+    /// <summary> Queue used for room creation </summary>
+    private Queue roomsToBuild;
 
     /// <summary> Creates a list of coordinates that can be used for level generation </summary>
     void InitialiseList()
     {
         /// clears our list gridPositions.
-        gridPositions.Clear();
+        gridPositions = new int [columns, rows];
 
         //Loop through x axis (columns).
         for (int x = 1; x < columns - 1; x++)
@@ -54,7 +65,7 @@ public class LevelManager : MonoBehaviour
             for (int y = 1; y < rows - 1; y++)
             {
                 //At each index add a new Vector3 to our list with the x and y coordinates of that position.
-                gridPositions.Add(new Vector3(x, y, 0f));
+                gridPositions[x, y] = 0;
             }
         }
     }
@@ -80,12 +91,17 @@ public class LevelManager : MonoBehaviour
 
                 //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
                 GameObject instance =
-                    Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                    Instantiate(toInstantiate, new Vector2(x, y), Quaternion.identity) as GameObject;
 
                 //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
                 instance.transform.SetParent(boardHolder);
             }
         }
+    }
+    /// <summary> Creates a room in the boundaries given </summary>
+    void SetupRoom(Vector2 start, Vector2 stop)
+    {
+
     }
 
     /// <summary> Entry Point for level creation. Sets up the board </summary>
