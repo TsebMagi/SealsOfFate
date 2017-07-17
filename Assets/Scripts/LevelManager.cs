@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
 
+/// <summary> enum abstraction of each tile that could be places on the board </summary>
+public enum levelRepresentations{Floor=1, Wall, Door, Enemy, Loot, Obstacles, Start, Exit}
+
 /// <summary> The levelManager Class handles the level generation for each level </summary>
 public class LevelManager : MonoBehaviour
 {
@@ -25,14 +28,7 @@ public class LevelManager : MonoBehaviour
     /// <summary> Collection of Obstacles to be used for generating the level </summary>
     public GameObject[] Obstacles;
 
-    /// <summary> Class that contains the stats for a room </summary>
-    private class RoomStats
-    {
-        public Range xRange;
-        public Range yRange;
-        public Vector2 doorway;
-        public Vector2 [] exits;
-    }
+
 
     /// <summary> The Board that is being created </summary>
     private Transform boardHolder;
