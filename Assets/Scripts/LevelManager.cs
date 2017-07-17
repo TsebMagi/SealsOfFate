@@ -7,18 +7,7 @@ using Random = UnityEngine.Random;
 /// <summary> The levelManager Class handles the level generation for each level </summary>
 public class LevelManager : MonoBehaviour
 {
-    /// <remark> The Range Class can be moved to a Utils collection eventually </remark>
-    public class Range
-    {
-        public int min;
-        public int max;
-
-        Range(int min, int max)
-        {
-            this.min = min;
-            this.max = max;
-        }
-    }
+   
     /// <summary> Number of Columns in the grid that the map will be generated on </summary>
     public int columns;
     /// <summary> Number of Row in the grid that the map will be generated on </summary>
