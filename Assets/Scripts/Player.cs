@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
     /// </summary>
     public class Player : MovingObject
     {
-	    /// <summary>Delay duration in seconds to restart level.</summary>
+        /// <summary>Delay duration in seconds to restart level.</summary>
         public float restartLevelDelay = 1f;
-	    /// <summary>Number of points to add to player food resource when picking up a food object.</summary>
+        /// <summary>Number of points to add to player food resource when picking up a food object.</summary>
         public int pointsPerFood = 10;
-	    /// <summary>Number of points to add to player food resource when picking up a soda object.</summary>
+        /// <summary>Number of points to add to player food resource when picking up a soda object.</summary>
         public int pointsPerSoda = 20;
-	    /// <summary>How much damage the Player inflicts to the Wall object when it attacks.</summary>
+        /// <summary>How much damage the Player inflicts to the Wall object when it attacks.</summary>
         public int wallDamage = 1;
         /// <summary>Stores a reference to the Player's animator component.</summary>
         private Animator animator;
-	    /// <summary>Stores the Player's current food points during the level.</summary>
+        /// <summary>Stores the Player's current food points during the level.</summary>
         private int food;
         
         /// <summary>
@@ -42,7 +42,7 @@ using UnityEngine.SceneManagement;
         /// </summary>
         private void OnDisable ()
         {
-	    // Currently only storing the Player's food
+        // Currently only storing the Player's food
             GameManager.instance.playerHealth = food;
         }
         
@@ -55,12 +55,12 @@ using UnityEngine.SceneManagement;
             //If it's not the player's turn, exit the function.
             if(!GameManager.instance.playersTurn || GameManager.getInstance().IsMoving) return;
             
-	        // Receive horizontal (arrow key left/right) input from the Input manager.
-            horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
+            // Receive horizontal (arrow key left/right) input from the Input manager.
+            int horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
             
-	        // Receive vertical (arrow key up/down) input from the Input manager.
-            vertical = (int) (Input.GetAxisRaw ("Vertical"));
-	        // NOTE: horizontal and vertical are cast to ints to round to a whole number.
+            // Receive vertical (arrow key up/down) input from the Input manager.
+            int vertical = (int) (Input.GetAxisRaw ("Vertical"));
+            // NOTE: horizontal and vertical are cast to ints to round to a whole number.
 
             // NOTE: Player movement is limited to exclusively up, down, left, right.
             //       Diagonal/omnidirectional movement is restricted.
