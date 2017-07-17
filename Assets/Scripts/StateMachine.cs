@@ -32,14 +32,14 @@ public class StateMachine<EntityT> {
     */
 	
 	// If we decide to extend StateMachine from MonoBehavior, than Update will be called once per frame. Currently, it is called manually.
-	void Update () {
+	public void Update () {
 		//If we have a defined global state, execute it first
         if (globalState != null) { globalState.Execute(owner); }
         //Now run the current state
         if (currentState != null) { currentState.Execute(owner); }
 	}
 
-    void ChangeState(State<EntityT> newState)
+    public void ChangeState(State<EntityT> newState)
     {
         //save our current state as the previous
         previousState = currentState;
@@ -52,10 +52,10 @@ public class StateMachine<EntityT> {
     }
 
     //Reverts to the previous state
-    void RevertState() { ChangeState(previousState); }
+    public void RevertState() { ChangeState(previousState); }
 
     //Checks to see if the state machine is in a particular state
-    bool IsInState(State<EntityT> check)
+    public bool IsInState(State<EntityT> check)
     {
         //Use RTTI to check if they're the same type.
         if (check.GetType() == currentState.GetType()) { return true; }
@@ -68,6 +68,6 @@ public class StateMachine<EntityT> {
     private State<EntityT> globalState;     //A global state that is checked every update.
 
     //Properties for states. Note these are only intended for the initial setup.
-    public State<EntityT> CurrentState { get { return this.currentState; } set { currentState = value; } }
+    public State<EntityT> CurrentState { get { return this.currentState; } set { currentState = value; currentState.Enter(owner); } }
     public State<EntityT> GlobalState { get { return this.globalState; } set { globalState = value; } }
 }

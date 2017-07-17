@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,16 @@ public class GameManager : MonoBehaviour
 
     public int playerHealth;
 
+    public void RegisterEnemy(MovingObject enemyToRegister)
+    {
+        //Temporary implementation
+        entitiesToMove = new MovingObject[1];
+        entitiesToMove[0] = enemyToRegister;
+    }
+
     // Use this for initialization
     void Awake()
     {
-
         // Singleton Code
         if (instance == null)
             instance = this;
@@ -34,6 +41,7 @@ public class GameManager : MonoBehaviour
         levelScript = GetComponent<LevelManager>();
         // Setup the level.
         InitLevel();
+
     }
 
     // Handles returning the game control to player and running other entities
@@ -47,13 +55,15 @@ public class GameManager : MonoBehaviour
                 //Handle each Entity in the list of entites to move
                 foreach (MovingObject obj in entitiesToMove)
                 {
-
+                    //Temporary kludge
+                    Enemy enemy = (Enemy)obj;
+                    enemy.getStateMachine().Update();
                 }
             }
         }
         playersTurn = true;
     }
-    public GameManager getInstance() { return instance; }
+    public static GameManager getInstance() { return instance; }
     void InitLevel()
     {
         levelScript.SetupScene(currentLevel);
