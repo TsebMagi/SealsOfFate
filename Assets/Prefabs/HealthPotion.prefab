@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4127225595407366}
   - component: {fileID: 212234490905474928}
+  - component: {fileID: 114715453715098984}
   m_Layer: 0
   m_Name: HealthPotion
-  m_TagString: Untagged
+  m_TagString: Pick Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114715453715098984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755225256352872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff0740c1560ce12468784ceb975a251f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212234490905474928
 SpriteRenderer:
   m_ObjectHideFlags: 1
