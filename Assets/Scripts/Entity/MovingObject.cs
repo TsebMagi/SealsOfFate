@@ -53,14 +53,46 @@ public abstract class MovingObject : MonoBehaviour
             //Return true to say that Move was successful
             return true;
         }
-
-        //If something was hit, return false, Move was unsuccesful.
         return false;
     }
 
+    /// <summary>
+    /// Raycasts from this object's position in a line specified by xDir and yDir. Returns true if something in the
+    /// blocking layer is hit. Returns false otherwise. Returns the hitting raycast out through the hit argument.
+    /// </summary>
+    /// <param name="xDir">The distance to cast in the x direction</param>
+    /// <param name="yDir">The distance to cast in the y direction</param>
+    /// <param name="hit">a RaycastHit2D object of whatever the raycast collides with. Null if nothing was hit.</param>
+    /// <returns>True on a hit, false otherwise. Returns the object hit through the hit parameter.</returns>
+    protected bool RaycastInDirection(int xDir, int yDir, out RaycastHit2D hit)
+    {
+        //Store start position to move from, based on objects current transform position.
+        Vector2 start = transform.position;
 
-    //Co-routine for moving units from one space to next, takes a parameter end to specify where to move to.
-    protected IEnumerator SmoothMovement(Vector3 end)
+        // Calculate end position based on the direction parameters passed in when calling Move.
+        Vector2 end = start + new Vector2(xDir, yDir);
+
+        //Disable the boxCollider so that linecast doesn't hit this object's own collider.
+        boxCollider.enabled = false;
+
+        //Cast a line from start point to end point checking collision on blockingLayer.
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+
+        //Re-enable boxCollider after linecast
+        boxCollider.enabled = true;
+
+        //Check if anything was hit
+        if (hit.transform == null)
+        {
+            return false;
+        }
+        //If something was hit, return false
+        return true;
+    }
+
+
+        //Co-routine for moving units from one space to next, takes a parameter end to specify where to move to.
+        protected IEnumerator SmoothMovement(Vector3 end)
     {
         //Calculate the remaining distance to move based on the square magnitude of the difference between current position and end parameter. 
         //Square magnitude is used instead of magnitude because it's computationally cheaper.
