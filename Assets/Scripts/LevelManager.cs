@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets up the outer walls and floor (backgroud) of the game board.
+    /// Sets up the outer walls and floor (background) of the game board.
     /// </summary>
     private void BoardSetup()
     {
@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
     /// <summary>
     /// RandomPosition returns a random position from our list gridPositions.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A 3D Vector</returns>
     private Vector3 RandomPosition()
     {
         // Declare an integer randomIndex, set it's value to a random number between 0 and the count of items in our List gridPositions.
@@ -151,6 +151,9 @@ public class LevelManager : MonoBehaviour
         //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
     }
 
+    /// <summary>
+    /// A range of integral values
+    /// </summary>
     public class Range
     {
         public int Max;

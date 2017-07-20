@@ -66,9 +66,9 @@ public abstract class MovingObject : MonoBehaviour
 
 
     /// <summary>
-    ///     Co-routine for moving units from one space to next, takes a parameter end to specify where to move to.
+    /// Co-routine for moving units from one space to next.
     /// </summary>
-    /// <param name="end"></param>
+    /// <param name="end">The end point of movement</param>
     /// <returns></returns>
     protected IEnumerator SmoothMovement(Vector3 end)
     {
