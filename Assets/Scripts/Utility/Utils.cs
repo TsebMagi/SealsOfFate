@@ -10,7 +10,7 @@
         public int max;
 
         /// <summary> min in an optional argument that will be set to 0 if not provided </summary>
-        Range(int max, int min=0)
+        public Range(int max, int min=0)
         {
             this.min = min;
             this.max = max;

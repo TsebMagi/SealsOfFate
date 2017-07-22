@@ -25,6 +25,6 @@ using Random = UnityEngine.Random;
         /// <summary> generates a feature and populates it with items in the validToPlace array </summary>
         public virtual void generate(Range xRange, Range yRange, levelRepresentations[] validToPlace)
         {
-
+            
         }
     }

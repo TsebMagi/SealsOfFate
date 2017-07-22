@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
     /// <summary> This Class extends the Feature Class by adding information specifically for the rooms </summary>
     class Room : Feature
     {
-        /// <summary> exits represents the exits of thise room, they can becom doorways to other rooms </summary>
+        /// <summary> exits represents the exits of thise room, they can become doorways to other rooms </summary>
         public Vector2 [] doors;
         /// <summary> containedFeatrues is the list of features that room contains </summary>
         private List <Feature> containedFeatures;

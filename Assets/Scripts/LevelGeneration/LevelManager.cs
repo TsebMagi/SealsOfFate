@@ -5,12 +5,11 @@ using System;
 using Random = UnityEngine.Random;
 
 /// <summary> enum abstraction of each tile that could be places on the board </summary>
-public enum levelRepresentations{Floor=1, Wall, Door, Enemy, Loot, Obstacles, Start, Exit}
+public enum levelRepresentations { Floor = 1, Wall, Door, Enemy, Loot, Obstacles, Start, Exit }
 
 /// <summary> The levelManager Class handles the level generation for each level </summary>
 public class LevelManager : MonoBehaviour
 {
-   
     /// <summary> Number of Columns in the grid that the map will be generated on </summary>
     public int Columns;
     /// <summary> Number of Row in the grid that the map will be generated on </summary>
@@ -27,29 +26,33 @@ public class LevelManager : MonoBehaviour
     public GameObject[] Doors;
     /// <summary> Collection of Obstacles to be used for generating the level </summary>
     public GameObject[] Obstacles;
-
-
+    /// <summary> Maximum number of rooms to generate </summary>
+    public int MaxRooms;
+    /// <summary> Minimum number of rooms to generate </summary>
+    public int MinRooms;
+    /// <summary> Maximum Dimension of rooms to generate </summary>
+    public int MaxDimension;
+    /// <summary> Minimum Dimension of rooms to generate </summary>
+    public int MinDimension;
 
     /// <summary> The Board that is being created </summary>
     private Transform boardHolder;
     /// <summary> List of Positions in the Grid </summary>
     private int[,] gridPositions;
-    /// <summary> Queue used for room creation </summary>
-    private Queue roomsToBuild;
+    /// <summary> Graph of the Level </summary>
+    private Graph<Room> levelLayout;
 
     /// <summary> Creates a list of coordinates that can be used for level generation </summary>
     void InitialiseList()
     {
         /// clears our list gridPositions.
-        gridPositions = new int [Columns, Rows];
-
+        gridPositions = new int[Columns, Rows];
         //Loop through x axis (columns).
         for (int x = 1; x < Columns - 1; x++)
         {
             //Within each column, loop through y axis (rows).
             for (int y = 1; y < Rows - 1; y++)
             {
-                //At each index add a new Vector3 to our list with the x and y coordinates of that position.
                 gridPositions[x, y] = 0;
             }
         }
@@ -58,6 +61,19 @@ public class LevelManager : MonoBehaviour
     /// <summary> sets up the level </summary>
     void BoardSetup()
     {
+        /// <remark> setup the graph </remark>
+        var numRooms = Random.Range(MinRooms, MaxRooms);
+        levelLayout = new Graph<Room>(numRooms);
+        /// <summary> Queue used for room creation </summary>
+        Queue roomsToBuild = new Queue();
+        for(int i =0; i < numRooms; ++i){
+            roomsToBuild.Enqueue(new Room(new Range((Random.Range(0,MaxDimension))),new Range((Random.Range(0,MaxDimension)))));
+        }
+        Queue openConnections = new Queue();
+
+        Room toPlace = (Room)roomsToBuild.Dequeue();
+
+
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
 
@@ -97,21 +113,6 @@ public class LevelManager : MonoBehaviour
 
         //Reset our list of gridpositions.
         InitialiseList();
-
-        //Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-        //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
-
-        //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
-        //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
-
-        //Determine number of enemies based on current level number, based on a logarithmic progression
-        //int enemyCount = (int)Mathf.Log(level, 2f);
-        int enemyCount = 2;
-        //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        //LayoutObjectAtRandom(Enemies, enemyCount, enemyCount);
-
-        //Instantiate the exit tile in the upper right hand corner of our game board
-        //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
     }
 }
 
