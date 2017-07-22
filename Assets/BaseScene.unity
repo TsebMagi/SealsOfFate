@@ -328,6 +328,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1855614962614306, guid: 68e77259e4be873439f109b9a7292e84,
         type: 2}
+    - target: {fileID: 114508715870727834, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: columns
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114508715870727834, guid: 1067e80f8d8275241a2b586aee84bfbe,
+        type: 2}
+      propertyPath: rows
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1067e80f8d8275241a2b586aee84bfbe, type: 2}
   m_IsPrefabParent: 0
