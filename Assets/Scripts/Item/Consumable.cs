@@ -1,21 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class Consumable : MonoBehaviour, IInteractable {
+/// <summary>
+/// Consumable object - does something to the critter picking it up
+/// </summary>
+public abstract class Consumable : MonoBehaviour, IInteractable
+{
+    //    public int HealthMod;
+    //   public int ManaMod;
 
-//    public int HealthMod;
- //   public int ManaMod;
-
+    /// <summary>
+    /// Implementation of the IInteractable interface
+    /// </summary>
+    /// <remarks>Calls Consumable.Consume()
+    /// </remarks>
     public void Interact()
     {
         Consume();
     }
 
-    virtual public void Consume()
+    /// <summary>
+    /// Consumes the object
+    /// </summary>
+    public virtual void Consume()
     {
         // GameManager.instance.playerHealth += HealthMod;
         //     GameManager.instance.playerMana += ManaMod;
     }
-
 }
