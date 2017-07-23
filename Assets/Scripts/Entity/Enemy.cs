@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Entity;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
 
@@ -8,7 +9,7 @@ using UnityEngine.Assertions.Comparers;
 /// This class is the general enemy class. It extends MovingObject and is expected to be extended by more specific
 /// classes for particular enemy behavior. It defines general functions that most enemies will need.
 /// </summary>
-public class Enemy : MovingObject
+public class Enemy : MovingObject, IAttackable
 {
     /// <summary>The normal movement speed of the enemy</summary>
     public int speed;
@@ -16,14 +17,21 @@ public class Enemy : MovingObject
     public int min_range;
     /// <summary> The maximum attack range for an enemy. Enemies will try to stay below this range </summary>
     public int max_range;
+    /// <summary>The enemy's health points</summary>
+    public int Health { get; set; }
+
+    /// <summary>
+    /// The primary weapon of all enemies is the truth
+    /// </summary>
+    public AttackInfo Weapon = new AttackInfo(5, DamageType.Blunt, "A hard truth, told cruelly");
 
     /// <summary> The state machine that handles state transitions. </summary>
-    private StateMachine<Enemy> stateMachine;
+    private StateMachine<Enemy> _stateMachine;
 
     Enemy() : base()
     {
-        stateMachine = new StateMachine<Enemy>(this);
-        stateMachine.CurrentState = StateAlert.getInstance();
+        _stateMachine = new StateMachine<Enemy>(this);
+        _stateMachine.CurrentState = StateAlert.getInstance();
     }
 
     /// <summary>
@@ -38,9 +46,12 @@ public class Enemy : MovingObject
     /// Returns the state machine instance
     /// </summary>
     /// <returns></returns>
-    public StateMachine<Enemy> getStateMachine()
+    public StateMachine<Enemy> StateMachine
     {
-        return stateMachine;
+        get
+        {
+            return _stateMachine;
+        }
     }
 
     /// <summary>
@@ -102,6 +113,7 @@ public class Enemy : MovingObject
         //move in the direction given
         AttemptMove<Component>(horizontal,vertical);
     }
+
     protected override void OnCantMove<T>(T component)
     {
         if (component.tag == "Player") {
@@ -110,4 +122,8 @@ public class Enemy : MovingObject
         return;
     }
 
+    public CombatData ToCombatData()
+    {
+        throw new NotImplementedException();
+    }
 }
