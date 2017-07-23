@@ -1,5 +1,5 @@
 /// <summary> The Utils File holds simple utility pices of Code </summary>
-
+namespace Utility {
 
 /// <summary> The Range Object is a Utility to allow the modeling of a range of int values. </summary>
  public struct Range
@@ -16,3 +16,4 @@
             this.max = max;
         }
     }
+}
