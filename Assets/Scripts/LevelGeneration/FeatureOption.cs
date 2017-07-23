@@ -1,4 +1,5 @@
 using System;
+using Utility;
 
 /// <summary>
 /// The "rule book" for level generation. This class serves as a reference
