@@ -5,7 +5,7 @@ using System;
 using Random = UnityEngine.Random;
 
 /// <summary> enum abstraction of each tile that could be places on the board </summary>
-public enum levelRepresentations { Floor = 1, Wall, Door, Enemy, Loot, Obstacles, Start, Exit }
+public enum levelRepresentations { NOTHING, Floor, Wall, Door, Enemy, Loot, Obstacles, Start, Exit, TOTAL }
 
 /// <summary> The levelManager Class handles the level generation for each level </summary>
 public class LevelManager : MonoBehaviour
