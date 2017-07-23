@@ -48,11 +48,9 @@ public class LevelManager : MonoBehaviour
         /// clears our list gridPositions.
         gridPositions = new int[Columns, Rows];
         //Loop through x axis (columns).
-        for (int x = 1; x < Columns - 1; x++)
-        {
+        for (int x = 1; x < Columns - 1; x++) {
             //Within each column, loop through y axis (rows).
-            for (int y = 1; y < Rows - 1; y++)
-            {
+            for (int y = 1; y < Rows - 1; y++) {
                 gridPositions[x, y] = 0;
             }
         }
@@ -61,19 +59,6 @@ public class LevelManager : MonoBehaviour
     /// <summary> sets up the level </summary>
     void BoardSetup()
     {
-        /// <remark> setup the graph </remark>
-        var numRooms = Random.Range(MinRooms, MaxRooms);
-        levelLayout = new Graph<Room>(numRooms);
-        /// <summary> Queue used for room creation </summary>
-        Queue roomsToBuild = new Queue();
-        for(int i =0; i < numRooms; ++i){
-            roomsToBuild.Enqueue(new Room(new Range((Random.Range(0,MaxDimension))),new Range((Random.Range(0,MaxDimension)))));
-        }
-        Queue openConnections = new Queue();
-
-        Room toPlace = (Room)roomsToBuild.Dequeue();
-
-
         //Instantiate Board and set boardHolder to its transform.
         boardHolder = new GameObject("Board").transform;
 
@@ -104,7 +89,6 @@ public class LevelManager : MonoBehaviour
     {
 
     }
-
     /// <summary> Entry Point for level creation. Sets up the board </summary>
     public void SetupScene(int level)
     {
@@ -114,6 +98,7 @@ public class LevelManager : MonoBehaviour
         //Reset our list of gridpositions.
         InitialiseList();
     }
+
 }
 
 
