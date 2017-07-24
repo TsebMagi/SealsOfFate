@@ -11,7 +11,7 @@ public class FeatureOption {
     /// <summary>The default minimum number of chunks a level should enforcably generate.</summary>
     private const int MIN_CHUNKS = 30;
     /// <summary>The default maximum number of chunks a level should enforcably generate.</summary>
-    private const int DEFAULT_MAX_CHUNKS = 50;
+    private const int DEFAULT_MAX_CHUNKS=50;
     /// <summary>A value [0.0, 1.0] that weighs the calculation of how many of these decorations to place.</summary>
     /// <remarks>
     /// For example, FeatureWeights[levelRepresentations.Loot] can be adjusted to 
@@ -26,8 +26,9 @@ public class FeatureOption {
     /// Default argument parameter enforces a level with sane defaults, but a 
     /// value should be provided to this nonetheless.
     /// </param>
-    public FeatureOption(Range chunksToMake = new Range(DEFAULT_MAX_CHUNKS, MIN_CHUNKS)) {
-        FeatureWeights = new float[levelRepresentations.TOTAL];
+    public FeatureOption(Range chunksToMake) {
+
+        FeatureWeights = new float[(int)levelRepresentations.TOTAL];
         Chunks = chunksToMake;
     }
 
@@ -36,7 +37,7 @@ public class FeatureOption {
     /// <param name="weight">A decimal value in the interval [0.0, 1.0] to set as a weight.</param>
     public FeatureOption SetWeight(levelRepresentations rep, float weight) {
         if (weight >= 0.0 && weight <= 1.0) {
-            FeatureWeights[rep] = weight;
+            FeatureWeights[(int)rep] = weight;
         }
 
         return this;

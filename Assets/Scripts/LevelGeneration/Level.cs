@@ -3,42 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Random = UnityEngine.Random;
+class Level : Feature
+{
+    public int[,] MiniMap;
 
-class Level : Feature {
-    public Graph<Vector2> LevelLayout;
-    public int [,] MiniMap;
-
-    public Level(Range xRange, Range yRange): base(xRange, yRange){}
-
-
-    void Generate(int MinRooms, int MaxRooms, int MaxDimension, int MinDimension){
+    /// <summary> Generates a level </summary>
+    public void Generate(int MinChunks, int MaxChunks, int ChunkDimension)
+    {
         /// <remark> setup the graph </remark>
-        var numRooms = Random.Range(MinRooms, MaxRooms);
+        var numRooms = Random.Range(MinChunks, MaxChunks);
         /// <remark> size the map to allow for each room take up the maximum and leave space for tunnels </remark>
-        featureMap = new int[MaxDimension*numRooms*2,MaxDimension*numRooms*2];
-        /// <remark> Queue used for room creation </remark>
-        Queue roomsToBuild = new Queue();
-        /// Generate a random set of rooms
-        for(int i =0; i < numRooms; ++i) {
-            roomsToBuild.Enqueue(new Room(new Range((Random.Range(MinDimension,MaxDimension))),new Range((Random.Range(MinDimension,MaxDimension)))));
+        xRange.max = yRange.max = (ChunkDimension * numRooms) + 2;
+        xRange.min = yRange.min = 0;
+        featureMap = new int[xRange.max, yRange.max];
+        BuildMiniMap(numRooms);
+        BuildChunks(ChunkDimension);
+        fillInWalls();
+    }
+
+    IEnumerable BuildMiniMap(int numRooms)
+    {
+        MiniMap = new int[numRooms, numRooms];
+        int curX = 0;
+        int curY = 0;
+        /// update to adjacent index
+        for (int i = 0; i < numRooms; ++i)
+        {
+            MiniMap[curX,curY] = 1;
+            bool done = false;
+            while (!done)
+            {
+                int newX = Random.Range(-1, 1);
+                int newY = Random.Range(-1, 1);
+                if (curX + newX > 0 && curX + newX < MiniMap.Length)
+                {
+                    if (curY + newY > 0 && curY + newY < MiniMap.Length)
+                    {
+                        done = true;
+                        curX += newX;
+                        curY += newY;
+                    }
+                }
+                else{
+                    yield return null;
+                }
+            }
         }
     }
 
-    void buildGraph(int numRooms){
-        LevelLayout = new Graph<Vector2>(numRooms);
-        
-        int[,] MiniMap = new int[numRooms*2,numRooms*2];
-        while(numRooms > 0){
-            int x = Random.Range(0,numRooms*2);
-            int y = Random.Range(0,numRooms*2);
-            if(MiniMap[x,y] == 0) {
-                MiniMap[x,y] = 1;
-                --numRooms;
+    void BuildChunks(int ChunkDimension)
+    {
+        for (int x = 1; x < featureMap.Length - 1; ++x)
+        {
+            for (int y = 1; y < featureMap.Length - 1; ++y)
+            {
+                if (MiniMap[(int)(x / ChunkDimension), (int)(y / ChunkDimension)] == 1)
+                {
+                    featureMap[x, y] = (int)levelRepresentations.Floor;
+                }
             }
         }
+    }
 
-        for(int x=1; x < numRooms*2-1; ++x){
-            for(int y=1; y < numRooms*2-1; ++y){
+    void fillInWalls()
+    {
+        for (int x = 0; x < featureMap.Length; x++)
+        {
+            for (int y = 0; y < featureMap.Length; y++)
+            {
+                if (featureMap[x, y] == 0 && CheckAdjacent(x, y) > 0)
+                {
+                    featureMap[x, y] = (int)levelRepresentations.Wall;
+                }
             }
         }
     }

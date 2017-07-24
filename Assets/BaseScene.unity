@@ -297,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359764853adfa504ab6729475996d35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Columns: 8
-  Rows: 8
+  Columns: 0
+  Rows: 0
   Walls:
   - {fileID: 1126637172613874, guid: da06bfd96e18e6141bccb22e8f52e66e, type: 2}
   Floors:
@@ -307,6 +307,9 @@ MonoBehaviour:
   Loot: []
   Doors: []
   Obstacles: []
+  MaxChunks: 20
+  MinChunks: 20
+  ChunkSize: 3
 --- !u!114 &1978801242
 MonoBehaviour:
   m_ObjectHideFlags: 0

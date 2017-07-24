@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Utility;
 using Random = UnityEngine.Random;
 
     /// <summary> This Class extends the Feature Class by adding information specifically for the rooms </summary>
@@ -11,9 +12,6 @@ using Random = UnityEngine.Random;
         public Vector2 [] doors;
         /// <summary> containedFeatrues is the list of features that room contains </summary>
         private List <RoomFeature> containedFeatures;
-        
-        /// <summary> Constructor, Will make the rooms internal ranges relative, but can be passed relative or absolute ranges </summary>
-        public Room(Range xRange, Range yRange) : base(xRange,yRange){}
 
         /// <summary> generates a room and handles filling it with features </summary>
         public void generate(Range xRange, Range yRange, levelRepresentations[] validToPlace, Vector2[] doors) {

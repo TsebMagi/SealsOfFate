@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Utility;
 using Random = UnityEngine.Random;
     /// <summary> The Feature Class is the base class for features on the map </summary>
     class Feature
@@ -12,16 +13,6 @@ using Random = UnityEngine.Random;
         /// <summary> Represents the relative range of y values in the feature </summary>
         public Range yRange;
         public int[,] featureMap;
-
-        /// <summary> Constructor, Will make the features internal ranges relative, but can be passed relative or absolute ranges </summary>
-        public Feature(Range xRange, Range yRange)
-        {
-            this.xRange.min = 0;
-            this.xRange.max = xRange.max - xRange.min;
-            this.yRange.min = 0;
-            this.yRange.max = yRange.max - yRange.min;
-            featureMap = new int[this.xRange.max, this.yRange.max];
-        }
 
         /// <summary> stiches a feature into this feature at the given starting point </summary>
         /// <param name="toStitch"> The feature being added to this feature </param>
@@ -36,4 +27,21 @@ using Random = UnityEngine.Random;
             }
             return true;
         }
+
+    public int CheckAdjacent(int x, int y){
+        int ret = 0;
+        if(x > 0 && featureMap[x-1,y] == 1){
+            ++ret;
+        }
+        if(x < featureMap.Length-1 && featureMap[x+1,y] == 1){
+            ++ret;
+        }
+        if(y > 0 && featureMap[x,y-1] == 1){
+            ++ret;
+        }
+        if(y < featureMap.Length-1 && featureMap[x,y+1] == 1){
+            ++ret;
+        }
+        return ret;
+    }
     }
