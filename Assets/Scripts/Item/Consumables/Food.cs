@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿using Assets.Scripts;
+
+/// <summary>
 ///     A food consumable that applies some manner of health to a player
 /// </summary>
 public class Food : Consumable
@@ -29,6 +31,6 @@ public class Food : Consumable
     /// </summary>
     public override void Consume()
     {
-        GameManager.instance.playerHealth += HealthMod * Multiplier;
+        GameManager.Instance.PlayerHealth += HealthMod * Multiplier;
     }
 }
