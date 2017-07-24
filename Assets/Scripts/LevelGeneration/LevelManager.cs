@@ -76,7 +76,7 @@ public class LevelManager : MonoBehaviour
         //Creates the outer walls and floor.
         BoardSetup();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.SetPositionAndRotation(new Vector2(ChunkSize+(ChunkSize/2), ChunkSize+(ChunkSize/2)),Quaternion.identity);
+        player.transform.SetPositionAndRotation(new Vector2((int)currentLevel.featureMap.GetLength(0)/2, (int)currentLevel.featureMap.GetLength(0)/2),Quaternion.identity);
     }
 
 }

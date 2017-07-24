@@ -25,14 +25,15 @@ class Level : Feature
     {
         List<Vector2> potentialSlots = new List<Vector2>();
         MiniMap = new int[numRooms, numRooms];
-        potentialSlots.Add(new Vector2(0,0));
+        potentialSlots.Add(new Vector2((int)numRooms/2,(int)numRooms/2));
         /// update to adjacent index
         for (int i = 0; i < numRooms; ++i)
         {
             Vector2 toPlace = potentialSlots[Random.Range(0,potentialSlots.Count)];
             potentialSlots.Remove(toPlace);
-            if(potentialSlots.Count > 0){
-            Vector2 toRemove = potentialSlots[Random.Range(0,potentialSlots.Count)];
+            int numToRemove = (int) potentialSlots.Count/4;
+            for(int j = 0; j < numToRemove-1; ++j){
+                Vector2 toRemove = potentialSlots[Random.Range(0,potentialSlots.Count)];
                 potentialSlots.Remove(toRemove);
             }
             MiniMap[(int)toPlace.x, (int)toPlace.y] = 1;
