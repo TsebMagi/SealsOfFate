@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.LevelGeneration;
 using Utility;
 
 /// <summary>
@@ -28,14 +29,14 @@ public class FeatureOption {
     /// </param>
     public FeatureOption(Range chunksToMake) {
 
-        FeatureWeights = new float[(int)levelRepresentations.TOTAL];
+        FeatureWeights = new float[(int)LevelDecoration.TOTAL];
         Chunks = chunksToMake;
     }
 
     /// <summary>Sets the specified weight to the given value.</summary>
     /// <param name="rep">The enum to target.</param>
     /// <param name="weight">A decimal value in the interval [0.0, 1.0] to set as a weight.</param>
-    public FeatureOption SetWeight(levelRepresentations rep, float weight) {
+    public FeatureOption SetWeight(LevelDecoration rep, float weight) {
         if (weight >= 0.0 && weight <= 1.0) {
             FeatureWeights[(int)rep] = weight;
         }
