@@ -4,6 +4,8 @@ using UnityEngine;
 namespace Assets.Scripts.LevelGeneration {
     public class Level : Feature {
         public int[,] MiniMap;
+        const int CULL_RATIO = 2;
+        const int CULL_THRESHOLD = 6;
 
         /// <summary>
         ///     This Function generates a level and populates it,
@@ -44,8 +46,8 @@ namespace Assets.Scripts.LevelGeneration {
                     potentialSlots.Remove(toPlace);
                     // if the number of available spots is large cull some to produce more interesting options
                     // Both the number that count is compared to and the ratio to cull shoould be played with as meta parameters
-                    if (potentialSlots.Count > 6) {
-                        var numToRemove = potentialSlots.Count / 2;
+                    if (potentialSlots.Count > CULL_THRESHOLD) {
+                        var numToRemove = potentialSlots.Count / CULL_RATIO;
                         for (var j = 0; j < numToRemove - 1; ++j) {
                             var toRemove = potentialSlots[Random.Range(0, potentialSlots.Count)];
                             potentialSlots.Remove(toRemove);
