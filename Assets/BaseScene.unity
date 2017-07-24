@@ -305,9 +305,10 @@ MonoBehaviour:
   Loot: []
   Doors: []
   Obstacles: []
+  Player: {fileID: 0}
   MaxChunks: 20
-  MinChunks: 20
-  ChunkSize: 3
+  MinChunks: 50
+  ChunkSize: 6
 --- !u!114 &1978801242
 MonoBehaviour:
   m_ObjectHideFlags: 0
