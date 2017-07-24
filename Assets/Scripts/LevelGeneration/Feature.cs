@@ -33,13 +33,13 @@ using Random = UnityEngine.Random;
         if(x > 0 && featureMap[x-1,y] == 1){
             ++ret;
         }
-        if(x < featureMap.Length-1 && featureMap[x+1,y] == 1){
+        if(x < featureMap.GetLength(0)-1 && featureMap[x+1,y] == 1){
             ++ret;
         }
         if(y > 0 && featureMap[x,y-1] == 1){
             ++ret;
         }
-        if(y < featureMap.Length-1 && featureMap[x,y+1] == 1){
+        if(y < featureMap.GetLength(1)-1 && featureMap[x,y+1] == 1){
             ++ret;
         }
         return ret;

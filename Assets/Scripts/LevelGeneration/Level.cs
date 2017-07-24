@@ -18,10 +18,10 @@ class Level : Feature
         featureMap = new int[xRange.max, yRange.max];
         BuildMiniMap(numRooms);
         BuildChunks(ChunkDimension);
-        fillInWalls();
+        FillInWalls();
     }
 
-    IEnumerable BuildMiniMap(int numRooms)
+    private void BuildMiniMap(int numRooms)
     {
         MiniMap = new int[numRooms, numRooms];
         int curX = 0;
@@ -33,43 +33,43 @@ class Level : Feature
             bool done = false;
             while (!done)
             {
-                int newX = Random.Range(-1, 1);
-                int newY = Random.Range(-1, 1);
-                if (curX + newX > 0 && curX + newX < MiniMap.Length)
+                int newX = Random.Range(-1, 2);
+                int newY = Random.Range(-1, 2);
+                if (curX + newX > 0 && curX + newX < MiniMap.GetLength(0))
                 {
-                    if (curY + newY > 0 && curY + newY < MiniMap.Length)
+                    if (curY + newY > 0 && curY + newY < MiniMap.GetLength(0))
                     {
                         done = true;
                         curX += newX;
                         curY += newY;
                     }
                 }
-                else{
-                    yield return null;
-                }
             }
         }
     }
 
-    void BuildChunks(int ChunkDimension)
+    private void BuildChunks(int ChunkDimension)
     {
-        for (int x = 1; x < featureMap.Length - 1; ++x)
+        for (int x = 1; x < MiniMap.GetLength(0) - 1; ++x)
         {
-            for (int y = 1; y < featureMap.Length - 1; ++y)
+            for (int y = 1; y < MiniMap.GetLength(1) - 1; ++y)
             {
-                if (MiniMap[(int)(x / ChunkDimension), (int)(y / ChunkDimension)] == 1)
+                if (MiniMap[x, y] == 1)
                 {
-                    featureMap[x, y] = (int)levelRepresentations.Floor;
+                    for(int j = 0; j < ChunkDimension; ++j){
+                        for(int k = 0; k < ChunkDimension; ++k)
+                        featureMap[x*ChunkDimension+j, y*ChunkDimension+k] = (int)levelRepresentations.Floor;
+                    }
                 }
             }
         }
     }
 
-    void fillInWalls()
+    private void FillInWalls()
     {
-        for (int x = 0; x < featureMap.Length; x++)
+        for (int x = 0; x < featureMap.GetLength(0); x++)
         {
-            for (int y = 0; y < featureMap.Length; y++)
+            for (int y = 0; y < featureMap.GetLength(1); y++)
             {
                 if (featureMap[x, y] == 0 && CheckAdjacent(x, y) > 0)
                 {

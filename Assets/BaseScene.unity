@@ -117,11 +117,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4807465879003910, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
       propertyPath: m_LocalPosition.z
@@ -297,8 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359764853adfa504ab6729475996d35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Columns: 0
-  Rows: 0
   Walls:
   - {fileID: 1126637172613874, guid: da06bfd96e18e6141bccb22e8f52e66e, type: 2}
   Floors:
