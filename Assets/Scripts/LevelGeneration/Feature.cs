@@ -36,7 +36,7 @@ namespace Assets.Scripts.LevelGeneration {
         }
 
         /// <summary>
-        /// Counts the adjacent floor tiles of a given index in the feature map
+        ///     Counts the adjacent floor tiles of a given index in the feature map
         /// </summary>
         /// <param name="x"> X index to examine</param>
         /// <param name="y"> Y index to examine</param>

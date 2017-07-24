@@ -19,7 +19,7 @@ namespace Assets.Scripts.Entity {
         /// </summary>
         /// <param name="p">The player</param>
         public CombatData(Player p) {
-            Health = GameManager.instance.playerHealth;
+            Health = GameManager.Instance.PlayerHealth;
             // copy in defense effects
             // copy in attack effects
             // copy in attack tags

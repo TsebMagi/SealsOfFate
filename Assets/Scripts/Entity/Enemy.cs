@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
 using Assets.Scripts.Entity;
 using UnityEngine;
 using UnityEngine.Assertions.Comparers;
@@ -39,7 +40,7 @@ public class Enemy : MovingObject, IAttackable
     /// </summary>
     void Awake()
     {
-        GameManager.instance.RegisterEnemy(this);
+        GameManager.Instance.RegisterEnemy(this);
     }
 
     /// <summary>

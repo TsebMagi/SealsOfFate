@@ -6,7 +6,7 @@ namespace Assets.Scripts.LevelGeneration {
         public int[,] MiniMap;
 
         /// <summary>
-        /// This Function generates a level and populates it,
+        ///     This Function generates a level and populates it,
         /// </summary>
         /// <param name="minChunks">The minimum number of chunks to try and create</param>
         /// <param name="maxChunks">The maximum number of chunks to try and create</param>
@@ -25,7 +25,7 @@ namespace Assets.Scripts.LevelGeneration {
         }
 
         /// <summary>
-        /// Builds out a random miniMap of the level with the given number of chunks.
+        ///     Builds out a random miniMap of the level with the given number of chunks.
         /// </summary>
         /// <param name="numChunks">The number of chunks to place during build</param>
         private void BuildMiniMap(int numChunks) {
@@ -75,7 +75,7 @@ namespace Assets.Scripts.LevelGeneration {
         }
 
         /// <summary>
-        /// This function translates the MiniMap into a full map by expanding the chunks into undecorated floors.
+        ///     This function translates the MiniMap into a full map by expanding the chunks into undecorated floors.
         /// </summary>
         /// <param name="chunkDimension">The Scalar that will be used for expansion</param>
         private void BuildChunks(int chunkDimension) {
@@ -94,7 +94,7 @@ namespace Assets.Scripts.LevelGeneration {
         }
 
         /// <summary>
-        /// This function goes through the map and addds walls to empty spaces adjacent to floors.
+        ///     This function goes through the map and addds walls to empty spaces adjacent to floors.
         /// </summary>
         private void FillInWalls() {
             for (var x = 0; x < FeatureMap.GetLength(0); x++) {

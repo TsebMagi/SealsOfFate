@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Entity;
+﻿using Assets.Scripts;
+using Assets.Scripts.Entity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -64,7 +65,7 @@ public class Player : MovingObject, IAttackable
         _animator = GetComponent<Animator>();
 
         // Get the current food point total stored in GameManager.instance between levels.
-        _food = GameManager.instance.playerHealth;
+        _food = GameManager.Instance.PlayerHealth;
 
         // Call the Start function of the MovingObject base class.
         base.Start();
@@ -76,7 +77,7 @@ public class Player : MovingObject, IAttackable
     /// </summary>
     /// <remarks>Currently only stores the Player's food.</remarks>
     private void OnDisable() {
-        GameManager.instance.playerHealth = _food;
+        GameManager.Instance.PlayerHealth = _food;
     }
 
     /// <summary>
@@ -85,7 +86,7 @@ public class Player : MovingObject, IAttackable
     /// </summary>
     private void Update() {
         //If it's not the player's turn, exit the function.
-        if (!GameManager.instance.playersTurn || GameManager.getInstance().IsMoving) {
+        if (!GameManager.Instance.PlayersTurn || GameManager.GetInstance().IsMoving) {
             return;
         }
 
@@ -137,7 +138,7 @@ public class Player : MovingObject, IAttackable
         CheckIfGameOver();
 
         // Set the playersTurn boolean of GameManager to false now that players turn is over.
-        GameManager.instance.playersTurn = false;
+        GameManager.Instance.PlayersTurn = false;
     }
 
     /// <summary>
@@ -218,7 +219,7 @@ public class Player : MovingObject, IAttackable
     private void CheckIfGameOver() {
         // Check if food point total is less than or equal to zero.
         if (_food <= 0) {
-            GameManager.instance.GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 
