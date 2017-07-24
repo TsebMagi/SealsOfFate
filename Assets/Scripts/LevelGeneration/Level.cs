@@ -23,27 +23,30 @@ class Level : Feature
 
     private void BuildMiniMap(int numRooms)
     {
+        List<Vector2> potentialSlots = new List<Vector2>();
         MiniMap = new int[numRooms, numRooms];
-        int curX = 0;
-        int curY = 0;
+        potentialSlots.Add(new Vector2(0,0));
         /// update to adjacent index
         for (int i = 0; i < numRooms; ++i)
         {
-            MiniMap[curX,curY] = 1;
-            bool done = false;
-            while (!done)
-            {
-                int newX = Random.Range(-1, 2);
-                int newY = Random.Range(-1, 2);
-                if (curX + newX > 0 && curX + newX < MiniMap.GetLength(0))
-                {
-                    if (curY + newY > 0 && curY + newY < MiniMap.GetLength(0))
-                    {
-                        done = true;
-                        curX += newX;
-                        curY += newY;
-                    }
-                }
+            Vector2 toPlace = potentialSlots[Random.Range(0,potentialSlots.Count)];
+            potentialSlots.Remove(toPlace);
+            if(potentialSlots.Count > 0){
+            Vector2 toRemove = potentialSlots[Random.Range(0,potentialSlots.Count)];
+                potentialSlots.Remove(toRemove);
+            }
+            MiniMap[(int)toPlace.x, (int)toPlace.y] = 1;
+            if(toPlace.x < MiniMap.GetLength(0)-1 && MiniMap[(int)toPlace.x+1, (int)toPlace.y] !=1){
+                potentialSlots.Add(new Vector2(toPlace.x+1,toPlace.y));
+            }
+            if(toPlace.x > 0 && MiniMap[(int)toPlace.x-1, (int)toPlace.y] !=1){
+                potentialSlots.Add(new Vector2(toPlace.x-1,toPlace.y));
+            }
+            if(toPlace.y < MiniMap.GetLength(0)-1 && MiniMap[(int)toPlace.x, (int)toPlace.y+1] !=1){
+                potentialSlots.Add(new Vector2(toPlace.x,toPlace.y+1));
+            }
+            if(toPlace.y > 0 && MiniMap[(int)toPlace.x, (int)toPlace.y-1] !=1){
+                potentialSlots.Add(new Vector2(toPlace.x,toPlace.y-1));
             }
         }
     }
@@ -56,9 +59,10 @@ class Level : Feature
             {
                 if (MiniMap[x, y] == 1)
                 {
-                    for(int j = 0; j < ChunkDimension; ++j){
-                        for(int k = 0; k < ChunkDimension; ++k)
-                        featureMap[x*ChunkDimension+j, y*ChunkDimension+k] = (int)levelRepresentations.Floor;
+                    for (int j = 0; j < ChunkDimension; ++j)
+                    {
+                        for (int k = 0; k < ChunkDimension; ++k)
+                            featureMap[x * ChunkDimension + j, y * ChunkDimension + k] = (int)levelRepresentations.Floor;
                     }
                 }
             }
