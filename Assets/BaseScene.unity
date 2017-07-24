@@ -305,8 +305,8 @@ MonoBehaviour:
   Loot: []
   Doors: []
   Obstacles: []
-  MaxChunks: 300
-  MinChunks: 800
+  MaxChunks: 1000
+  MinChunks: 500
   ChunkSize: 3
 --- !u!114 &1978801242
 MonoBehaviour:

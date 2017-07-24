@@ -31,33 +31,31 @@ namespace Assets.Scripts.LevelGeneration {
         public int ChunkSize;
 
         /// <summary> The Board that is being created </summary>
-        private Transform boardHolder;
-        /// <summary> List of Positions in the Grid </summary>
-        private int[,] gridPositions;
+        private Transform _boardHolder;
         /// <summary> The level that will be created </summary>
-        private Level currentLevel;
+        public Level CurrentLevel;
 
         /// <summary> sets up the level </summary>
         void BoardSetup()
         {
             //Instantiate Board and set boardHolder to its transform.
-            boardHolder = new GameObject("Board").transform;
+            _boardHolder = new GameObject("Board").transform;
             // create and setup the level
-            currentLevel = new Level();
-            currentLevel.Generate(MinChunks, MaxChunks, ChunkSize);
+            CurrentLevel = new Level();
+            CurrentLevel.Generate(MinChunks, MaxChunks, ChunkSize);
             //Loop along x axis, starting from -1 (to fill corner) with floor or outerwall edge tiles.
-            for (int x = 0; x < currentLevel.XRange.max; x++)
+            for (int x = 0; x < CurrentLevel.XRange.max; x++)
             {
                 //Loop along y axis, starting from -1 to place floor or outerwall tiles.
-                for (int y = 0; y < currentLevel.YRange.max; y++)
+                for (int y = 0; y < CurrentLevel.YRange.max; y++)
                 {
                     //Choose a random tile from our array of floor tile prefabs and prepare to instantiate it.
                     GameObject toInstantiate = null;
 
-                    if (currentLevel.FeatureMap[x,y] == (int)LevelDecoration.Floor)
+                    if (CurrentLevel.FeatureMap[x,y] == (int)LevelDecoration.Floor)
                         toInstantiate = Floors[Random.Range(0, Floors.Length)];
                     //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
-                    if (currentLevel.FeatureMap[x,y] == (int)LevelDecoration.Wall)
+                    if (CurrentLevel.FeatureMap[x,y] == (int)LevelDecoration.Wall)
                         toInstantiate = Walls[Random.Range(0, Walls.Length)];
 
                     if(toInstantiate){
@@ -65,7 +63,7 @@ namespace Assets.Scripts.LevelGeneration {
                         GameObject instance =
                             Instantiate(toInstantiate, new Vector2(x, y), Quaternion.identity) as GameObject;
                         //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
-                        instance.transform.SetParent(boardHolder);
+                        instance.transform.SetParent(_boardHolder);
                     }
                 }
             }
@@ -77,7 +75,7 @@ namespace Assets.Scripts.LevelGeneration {
             //Creates the outer walls and floor.
             BoardSetup();
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.SetPositionAndRotation(new Vector2((int)currentLevel.FeatureMap.GetLength(0)/2, (int)currentLevel.FeatureMap.GetLength(0)/2),Quaternion.identity);
+            player.transform.SetPositionAndRotation(new Vector2(CurrentLevel.FeatureMap.GetLength(0) / 2, CurrentLevel.FeatureMap.GetLength(0) / 2),Quaternion.identity);
         }
 
     }

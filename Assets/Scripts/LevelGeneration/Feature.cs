@@ -4,7 +4,7 @@ using Utility;
 
 namespace Assets.Scripts.LevelGeneration {
     /// <summary> The Feature Class is the base class for features on the map </summary>
-    internal class Feature {
+    public class Feature {
         public int[,] FeatureMap;
 
         /// <summary> Represents the relative range of x values in the feature </summary>
