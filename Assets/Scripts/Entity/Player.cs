@@ -71,9 +71,7 @@ public class Player : MovingObject, IAttackable {
     public void Attack(IAttackable defender) {
         _combatData = GetComponent<CombatData>();
         var damage = CombatData.ComputeDamage(_combatData.ToTemporaryCombatData(), defender.ToTemporaryCombatData());
-
         Debug.Log(String.Format("player inflicts {0} damage on penguin", damage.DefenderDamage.HealthDamage));
-
         defender.TakeDamage(damage.DefenderDamage);
         TakeDamage(damage.AttackerDamage);
     }
@@ -93,13 +91,13 @@ public class Player : MovingObject, IAttackable {
 
         _combatData.ManaPoints -= damage.ManaDamage;
 
-        if (_combatData.HealthPoints > 0) {
-            return;
+        if (_combatData.HealthPoints <= 0)
+        {
+            Debug.Log("In theory, this penguin is dead");
+            Destroy(gameObject);
+            // TODO Trigger game over animation
+            throw new Exception("Holy cats, you're dead!");
         }
-
-        Destroy(gameObject);
-        // TODO Trigger game over animation
-        throw new Exception("Holy cats, you're dead!");
     }
 
     /// <summary>
@@ -109,6 +107,11 @@ public class Player : MovingObject, IAttackable {
         // Get a component reference to the Player's animator component
         _animator = GetComponent<Animator>();
         _combatData = GetComponent<CombatData>();
+
+        //// Get the current food point total stored in GameManager.instance between levels.
+        //if (GameManager.Instance.PlayerHealth > 0) {
+        //    _combatData.HealthPoints = GameManager.Instance.PlayerHealth;
+        //} 
 
         // Call the Start function of the MovingObject base class.
         base.Start();
