@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts;
-
+using UnityEngine;
 /// <summary>
 ///     A food consumable that applies some manner of health to a player
 /// </summary>
@@ -35,5 +35,6 @@ public class Food : Consumable {
         }
 
         GameManager.Instance.PlayerHealth = (short)newHealth;
+        base.Consume();
     }
 }

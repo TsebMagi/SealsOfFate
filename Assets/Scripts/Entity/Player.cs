@@ -216,12 +216,15 @@ public class Player : MovingObject, IAttackable {
                 // Disable the player object since level is over.
                 enabled = false;
                 break;
-            case "Food":
+            case "Pick Up":
                 // Add pointsPerFood to the players current food total.
                 _food += PointsPerFood;
-
-                // Disable the food object the player collided with.
+                 // Disable the food object the player collided with.
+                 Debug.Log("The Pick Up has been encountered!");
                 other.gameObject.SetActive(false);
+                var food = other.gameObject.GetComponent<Food>();
+                food.Consume();
+
                 break;
             case "Soda":
                 // Add pointsPerSoda to players food points total

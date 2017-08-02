@@ -25,5 +25,8 @@ public abstract class Consumable : MonoBehaviour, IInteractable
     {
         // GameManager.instance.playerHealth += HealthMod;
         //     GameManager.instance.playerMana += ManaMod;
+        // TODO Add a death animation
+        Debug.Log("The Seal has consumed an item!");
+        Destroy(gameObject);
     }
 }
