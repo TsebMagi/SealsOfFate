@@ -96,6 +96,7 @@ public class Player : MovingObject, IAttackable {
             Debug.Log("In theory, this penguin is dead");
             Destroy(gameObject);
             // TODO Trigger game over animation
+            CheckIfGameOver();
             throw new Exception("Holy cats, you're dead!");
         }
     }
@@ -109,9 +110,9 @@ public class Player : MovingObject, IAttackable {
         _combatData = GetComponent<CombatData>();
 
         //// Get the current food point total stored in GameManager.instance between levels.
-        //if (GameManager.Instance.PlayerHealth > 0) {
-        //    _combatData.HealthPoints = GameManager.Instance.PlayerHealth;
-        //} 
+        if (GameManager.Instance.PlayerHealth > 0) {
+            _combatData.HealthPoints = GameManager.Instance.PlayerHealth;
+        } 
 
         // Call the Start function of the MovingObject base class.
         base.Start();
@@ -229,15 +230,6 @@ public class Player : MovingObject, IAttackable {
                 other.gameObject.SetActive(false);
                 var food = other.gameObject.GetComponent<Food>();
                 food.Consume();
-
-                break;
-            case "Soda":
-                // Add pointsPerSoda to players food points total
-                _food += PointsPerSoda;
-
-
-                // Disable the soda object the player collided with.
-                other.gameObject.SetActive(false);
                 break;
         }
     }
@@ -270,7 +262,7 @@ public class Player : MovingObject, IAttackable {
     /// </summary>
     private void CheckIfGameOver() {
         // Check if food point total is less than or equal to zero.
-        if (_food <= 0) {
+        if (_combatData.HealthPoints <= 0) {
             GameManager.Instance.GameOver();
         }
     }
