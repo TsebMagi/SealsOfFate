@@ -30,15 +30,8 @@ public class Player : MovingObject, IAttackable {
 
     /// <summary>Number of points to add to player food resource when picking up a food object.</summary>
     public int PointsPerFood = 10;
-
-    /// <summary>Number of points to add to player food resource when picking up a soda object.</summary>
-    public int PointsPerSoda = 20;
-
     /// <summary>Delay duration in seconds to restart level.</summary>
     public float RestartLevelDelay = 1f;
-
-    /// <summary>How much damage the Player inflicts to the Wall object when it attacks.</summary>
-    public int WallDamage = 1;
 
     public Player() {
         

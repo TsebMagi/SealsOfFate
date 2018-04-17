@@ -317,9 +317,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   _combatData: {fileID: 0}
   PointsPerFood: 10
-  PointsPerSoda: 20
   RestartLevelDelay: 1
-  WallDamage: 1
 --- !u!114 &114410652489229368
 MonoBehaviour:
   m_ObjectHideFlags: 1
