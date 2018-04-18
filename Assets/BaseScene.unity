@@ -176,7 +176,7 @@ Prefab:
         type: 2}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: 1af42196f9d737248ac33f8d257dd1ac, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 61280125129859810, guid: 84d5fa99bfd488747bf2969b8fa96a23,
         type: 2}
       propertyPath: m_EdgeRadius
@@ -185,7 +185,7 @@ Prefab:
     - target: {fileID: 50911701871546478, guid: 84d5fa99bfd488747bf2969b8fa96a23,
         type: 2}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 50911701871546478, guid: 84d5fa99bfd488747bf2969b8fa96a23,
         type: 2}
@@ -201,6 +201,16 @@ Prefab:
         type: 2}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50911701871546478, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50911701871546478, guid: 84d5fa99bfd488747bf2969b8fa96a23,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}

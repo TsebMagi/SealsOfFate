@@ -31,6 +31,7 @@ public class PlayerBehaviour : EntityBehaviour {
         // Check if the tag of the trigger collided with is Exit.
         switch (other.tag) {
             case "Exit":
+                Debug.Log("Exit Hit");
                 // Disable the player object since level is over.
                 enabled = false;
                 break;
@@ -42,7 +43,7 @@ public class PlayerBehaviour : EntityBehaviour {
                 food.Consume();
                 break;
             case "Wall":
-                rgb2d.velocity = -1*rgb2d.velocity;
+                Debug.Log("Wall Hit");
                 break;
             default:
                 Debug.Log("The Seal Has hit something!");
