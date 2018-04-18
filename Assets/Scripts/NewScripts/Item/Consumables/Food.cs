@@ -29,9 +29,5 @@ public class Food : Consumable {
     ///     different amounts of health.
     /// </summary>
     public override void Consume() {
-        var player = FindObjectOfType<Player>();
-        player.Heal(HealthMod * Multiplier);
-
-        base.Consume();
     }
 }

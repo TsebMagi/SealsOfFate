@@ -6,19 +6,6 @@ using Combat;
 [Serializable]
 public class IgnoresArmorAttackTag : AttackTag
 {
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     /// <summary>
     /// Set the defender's armor to 0.
     /// </summary>
