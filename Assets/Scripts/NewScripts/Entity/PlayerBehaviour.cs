@@ -41,6 +41,9 @@ public class PlayerBehaviour : EntityBehaviour {
                 var food = other.gameObject.GetComponent<Food>();
                 food.Consume();
                 break;
+            case "Wall":
+                rgb2d.velocity = -1*rgb2d.velocity;
+                break;
             default:
                 Debug.Log("The Seal Has hit something!");
                 break;

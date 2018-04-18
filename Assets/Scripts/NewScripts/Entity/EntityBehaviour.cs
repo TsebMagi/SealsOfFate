@@ -17,7 +17,6 @@ public abstract class EntityBehaviour : MonoBehaviour {
         currentMana = _maxMana;
         alive = true;
         rgb2d = GetComponent<Rigidbody2D>();
-        if(rgb2d == null){Debug.Log("NULL RIGIDBODY!");}
 	}
     /// <summary>
     /// Used by attacker when entity is attacked, to calculate Damage taken by this entity
