@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 95572330710232968}
   - component: {fileID: 114061717239179980}
   - component: {fileID: 114238090809140922}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -115,17 +115,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1855614962614306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452c0a0fe6aea13459d8410e0b88e229, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c2810a2b5e49cf4aac0daf4b5d45a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockingLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  MoveTime: 0.075
-  _combatData: {fileID: 0}
-  max_range: 1
-  min_range: 0
-  speed: 1
+  _maxHealth: 1
+  currentHealth: 0
+  _maxMana: 0
+  currentMana: 0
+  xp: 0
+  moveSpeed: 0
+  combatData: {fileID: 0}
+  healthBar: {fileID: 0}
+  MaxRange: 0
+  MinRange: 0
+  Speed: 0
 --- !u!114 &114238090809140922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +144,9 @@ MonoBehaviour:
   _defenseEffects: []
   _defenseTags: []
   Armor: 0
+  Blocking: 0
+  DamageReduction: 0
+  DefenseInfo: {fileID: 0}
   Evasion: 0
   HealthPoints: 50
   ManaPoints: 0
@@ -152,9 +158,6 @@ MonoBehaviour:
     Damage: 20
     DamageType: 2
     Description: Lies
-  DefenseInfo: {fileID: 0}
-  DamageReduction: 0
-  Blocking: 0
 --- !u!212 &212193571088210470
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224604650482694320}
   - component: {fileID: 222085974680535882}
   - component: {fileID: 114020608188213990}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 92486254478939258}
   - component: {fileID: 124885464682569274}
   - component: {fileID: 81638180518273010}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 223347605769958934}
   - component: {fileID: 114410652489229368}
   - component: {fileID: 114665455300251380}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Healthbar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114307012318739950}
   - component: {fileID: 95447176933827224}
   - component: {fileID: 114003339879714040}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: PlayerSeal
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 224384291827056400}
   - component: {fileID: 222717465695840040}
   - component: {fileID: 114827394210006196}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780647233420238}
   m_BodyType: 1
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -196,7 +196,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -307,17 +307,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1780647233420238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7fa84b1cbb7ab459b05ce1a72ef24c, type: 3}
+  m_Script: {fileID: 11500000, guid: c0b40269604944247b483a26c1f34607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlockingLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  MoveTime: 0.075
-  healthBar: {fileID: 0}
-  _combatData: {fileID: 0}
-  PointsPerFood: 10
-  RestartLevelDelay: 1
+  _maxHealth: 100
+  currentHealth: 0
+  _maxMana: 100
+  currentMana: 0
+  xp: 0
+  moveSpeed: 1
+  combatData: {fileID: 114003339879714040}
+  healthBar: {fileID: 224337399914155692}
 --- !u!114 &114410652489229368
 MonoBehaviour:
   m_ObjectHideFlags: 1

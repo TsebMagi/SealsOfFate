@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 //Class used to wrap Entity Data up together
 public abstract class EntityBehaviour : MonoBehaviour {
     public int _maxHealth;
@@ -13,11 +10,14 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public float moveSpeed;
     public Combat.CombatData combatData;
     public RectTransform healthBar;
-    private Animator _animator;	
-    public void Start () {
+    private Animator _animator;
+    protected Rigidbody2D rgb2d;	
+    public virtual void Start () {
         currentHealth = _maxHealth;
         currentMana = _maxMana;
         alive = true;
+        rgb2d = GetComponent<Rigidbody2D>();
+        if(rgb2d == null){Debug.Log("NULL RIGIDBODY!");}
 	}
     /// <summary>
     /// Used by attacker when entity is attacked, to calculate Damage taken by this entity

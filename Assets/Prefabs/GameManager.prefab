@@ -48,9 +48,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412084579755790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86b9d09d417ff6943ba1fb04e69ead27, type: 3}
+  m_Script: {fileID: 11500000, guid: a4fa1f6c6ef3bfc488ef2051f64b4208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxLevel: 0
   PlayerHealth: 0
-  PlayersTurn: 1

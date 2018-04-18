@@ -10,44 +10,23 @@ using UnityEngine.UI;
 ///     GameObjects in the generated scene.
 /// </summary>
 public class PlayerBehaviour : EntityBehaviour {
-    /// <summary>Stores the Player's Movement Speed.</summary>
-    private ushort _movementSpeed;
-
-    public PlayerBehaviour() {
-        
-        // TODO populate me
-        //_combatData = new CombatData {
-        //    HealthPoints = 100,
-        //    ManaPoints = 10,
-        //    SealieAttack = new AttackInfo(10, DamageType.Blunt, "A vicious nose boop")
-        //};
+    public override void Start(){
+        base.Start();
     }
     private void OnDestroy() {
         Debug.Log("Player Destroyed");
     }
 
-    public override void Update() {
-
+    void FixedUpdate() {
+        //Store the current horizontal input in the float moveHorizontal.
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        //Store the current vertical input in the float moveVertical.
+        float moveVertical = Input.GetAxis ("Vertical");
+        //Use the two store floats to create a new Vector2 variable movement.
+        Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
+        //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
+        rgb2d.AddForce(movement * moveSpeed);
     }
-
-    /// <summary>
-    ///     Attempts to move the Player in the direction specified by xDir and yDir. This method will
-    /// </summary>
-    /// <param name="xDir">The horizontal direction (left or right).</param>
-    /// <param name="yDir">The vertical direction (up or down).</param>
-    /// <param name="T">
-    ///     An obstruction, such as an enemy or a wall, that could possibly
-    ///     prohibit movement.
-    /// </param>
-
-    /// <summary>
-    ///     Handles collision logic and determines how the Player interaction with
-    ///     other with other GameObjects on collision are invoked.
-    /// </summary>
-    /// <param name="other">
-    ///     A reference to the GameObject's collider that the
-    ///     Player collided into.
-    /// </param>
     private void OnTriggerEnter2D(Collider2D other) {
         // Check if the tag of the trigger collided with is Exit.
         switch (other.tag) {
@@ -61,6 +40,9 @@ public class PlayerBehaviour : EntityBehaviour {
                 other.gameObject.SetActive(false);
                 var food = other.gameObject.GetComponent<Food>();
                 food.Consume();
+                break;
+            default:
+                Debug.Log("The Seal Has hit something!");
                 break;
         }
     }
