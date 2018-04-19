@@ -7,34 +7,45 @@ using UnityEngine;
 ///     classes for particular enemy behavior. It defines general functions that most enemies will need.
 /// </summary>
 public class EnemyBehaviour : EntityBehaviour{
-    /// <summary> The state machine that handles state transitions. </summary>
-    /// <summary> The maximum attack range for an enemy. Enemies will try to stay below this range </summary>
-    public int MaxRange;
-    /// <summary> The minimum attack range for an enemy. Enemies will try to stay above this range</summary>
-    public int MinRange;
-    /// <summary>The normal movement speed of the enemy</summary>
-    public int Speed;
+    /// <summary>The maximum range for an enemy. Enemies will try to stay below this range </summary>
+    public float maxRange;
+    /// <summary>The minimum range for an enemy. Enemies will try to stay above this range</summary>
+    public float minRange;
+    /// <summary>How close the player can get before the enemy wakes up</summary>
+    public float awakeDistance;
+    /// <summary>Reference to the Player Object</summary>
+    public float sleepDistance;
+    public float attackSpeed;
     private GameObject player;
-    private bool awake;
+    /// <summary>Wether the enemy is awake</summary>
+    private bool _awake;
     /// <summary>
-    ///     Kicks off baseclass start
+    ///     Kicks off baseclass start and find the player
     /// </summary>
     public override void Start(){
         base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
     }
+    /// <summary>
+    ///     checks distance to player and wakes up or sleeps depending on that distance
+    /// </summary>
     public override void Update(){
         base.Update();
-        if(Vector2.Distance(player.transform.position, transform.position) < 5){
-            awake = true;
+    }
+    /// <summary>
+    ///     Moves the Enemy based on preferences
+    /// </summary>
+    void FixedUpdate(){
+        var distToPlayer = Vector2.Distance(player.transform.position, transform.position);
+        if(!_awake){
+            if(distToPlayer < awakeDistance) {_awake = true;}
         }
         else{
-            awake = false;
-        }
-    }
-    void FixedUpdate(){
-        if(rgb2d != null && awake == true){
-            rgb2d.AddForce((player.transform.position - transform.position).normalized* moveSpeed);
+            var toPlayer = player.transform.position - transform.position;
+            if(distToPlayer > sleepDistance) {_awake = false;}
+            else if(distToPlayer < minRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed*-1);}
+            else if(distToPlayer >maxRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed);}
+            else{CreateAttack(player.transform.position);}
         }
     }
 }

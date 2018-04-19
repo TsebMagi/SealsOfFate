@@ -110,7 +110,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -178,10 +178,12 @@ MonoBehaviour:
   xp: 0
   moveSpeed: 10
   combatData: {fileID: 0}
+  attack: {fileID: 1881486407551756, guid: 8907b9a6b37aebf4498872549c7caf4f, type: 2}
   healthBar: {fileID: 224925869110510748}
-  MaxRange: 0
-  MinRange: 0
-  Speed: 0
+  maxRange: 5
+  minRange: 2
+  awakeDistance: 10
+  sleepDistance: 15
 --- !u!114 &114238090809140922
 MonoBehaviour:
   m_ObjectHideFlags: 1

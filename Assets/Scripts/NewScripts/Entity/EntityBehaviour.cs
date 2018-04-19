@@ -9,6 +9,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public int xp;
     public float moveSpeed;
     public Combat.CombatData combatData;
+    public GameObject attack;
     public RectTransform healthBar;
     private Animator _animator;
     protected Rigidbody2D rgb2d;	
@@ -29,6 +30,11 @@ public abstract class EntityBehaviour : MonoBehaviour {
         if(this.currentHealth <= 0){
             alive = false;
         }
+    }
+    public virtual void CreateAttack(Vector2 target){
+        var spawn = (target - (Vector2)transform.position).normalized;
+        var newAttack = Instantiate(attack,(Vector2)transform.position+spawn,Quaternion.identity);
+        newAttack.GetComponent<Rigidbody2D>().AddForce(spawn*moveSpeed*2);
     }
 
     public virtual void Update(){

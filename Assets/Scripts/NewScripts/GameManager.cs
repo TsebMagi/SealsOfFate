@@ -8,36 +8,36 @@ using UnityEngine.SceneManagement;
 // delegates the room creation 
 namespace Assets.Scripts{
     public class GameManager : MonoBehaviour{
-        private static float MinimumDistanceFromPlayer = 200f;
-        public static GameManager Instance;
+        public static GameManager instance;
         private readonly int currentLevel = 1;
-        public int MaxLevel;
-        public int PlayerHealth;
+        public int maxLevel;
+        public int playerHealth;
+        public GameObject player;
         public GameManager(){
         }
-        public LevelManager LevelScript { get; set; }
+        public LevelManager levelScript { get; set; }
         /// <summary>
         ///     Initializes the GameManager
         /// </summary>
         private void Awake(){
             // Singleton Code
-            if (Instance == null)
-            {
-                Instance = this;
+            if (instance == null){
+                instance = this;
             }
-            else if (Instance != this)
-            {
+            else if (instance != this){
                 Destroy(gameObject);
             }
+            Instantiate(player,new Vector3(0,0,0),Quaternion.identity);
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(player);
             // Grab the currently attached levelManager script
-            LevelScript = GetComponent<LevelManager>();
+            levelScript = GetComponent<LevelManager>();
             InitLevel();
         }
 
         /// <summary>Get the CurrentLevelFeatureMap</summary>
         internal static int[,] CurrentLevelFeatureMap{
-            get { return Instance.LevelScript.CurrentLevel.FeatureMap; }
+            get { return instance.levelScript.CurrentLevel.FeatureMap; }
         }
 
         /// <summary> 
@@ -49,13 +49,13 @@ namespace Assets.Scripts{
         /// </summary>
         /// <returns></returns>
         public static GameManager GetInstance(){
-            return Instance;
+            return instance;
         }
         /// <summary>
         ///     Sets up the level
         /// </summary>
         private void InitLevel(){
-            LevelScript.SetupScene(currentLevel);
+            levelScript.SetupScene(currentLevel);
         }
         /// <summary>
         ///     Something, something, end of the game.
