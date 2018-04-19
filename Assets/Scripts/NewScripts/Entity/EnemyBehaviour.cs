@@ -14,11 +14,27 @@ public class EnemyBehaviour : EntityBehaviour{
     public int MinRange;
     /// <summary>The normal movement speed of the enemy</summary>
     public int Speed;
-    private EnemyBehaviour() {
-    }
+    private GameObject player;
+    private bool awake;
     /// <summary>
-    ///     Sets up the enemy on load and registers it with the game manager.
+    ///     Kicks off baseclass start
     /// </summary>
-    private void Awake() {
+    public override void Start(){
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public override void Update(){
+        base.Update();
+        if(Vector2.Distance(player.transform.position, transform.position) < 5){
+            awake = true;
+        }
+        else{
+            awake = false;
+        }
+    }
+    void FixedUpdate(){
+        if(rgb2d != null && awake == true){
+            rgb2d.AddForce((player.transform.position - transform.position).normalized* moveSpeed);
+        }
     }
 }
