@@ -8,7 +8,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     private bool alive;
     public int xp;
     public float moveSpeed;
-    public Combat.CombatData combatData;
+    public Combat.DefenseInfo defenseInfo;
     public GameObject attack;
     public RectTransform healthBar;
     private Animator _animator;
@@ -23,10 +23,8 @@ public abstract class EntityBehaviour : MonoBehaviour {
     /// Used by attacker when entity is attacked, to calculate Damage taken by this entity
     /// </summary>
     /// <param name="AttackerCD"> The attacking entities Combat Data </param>
-    public void RecieveAttack(Combat.CombatData AttackerCD){
-        Combat.CombatResult cBResult = Combat.CombatData.ComputeDamage(AttackerCD.ToTemporaryCombatData(), combatData.ToTemporaryCombatData());
-        this.currentHealth += cBResult.DefenderDamage.HealthDamage;
-        this.currentMana += cBResult.DefenderDamage.ManaDamage;
+    public void RecieveAttack(Combat.AttackInfo AInfo){
+        this.currentHealth -= AInfo.Damage;
         if(this.currentHealth <= 0){
             alive = false;
         }

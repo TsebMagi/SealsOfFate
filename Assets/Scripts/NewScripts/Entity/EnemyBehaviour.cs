@@ -45,7 +45,6 @@ public class EnemyBehaviour : EntityBehaviour{
             if(distToPlayer > sleepDistance) {_awake = false;}
             else if(distToPlayer < minRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed*-1);}
             else if(distToPlayer >maxRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed);}
-            else{CreateAttack(player.transform.position);}
         }
     }
 }
