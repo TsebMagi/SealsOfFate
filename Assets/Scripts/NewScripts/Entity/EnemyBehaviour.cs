@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts;
 using Combat;
 using UnityEngine;
-
+namespace Entity{
 /// <summary>
 ///     This class is the general enemy class. It extends MovingObject and is expected to be extended by more specific
 ///     classes for particular enemy behavior. It defines general functions that most enemies will need.
@@ -45,6 +45,8 @@ public class EnemyBehaviour : EntityBehaviour{
             if(distToPlayer > sleepDistance) {_awake = false;}
             else if(distToPlayer < minRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed*-1);}
             else if(distToPlayer >maxRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed);}
+            else{CreateAttack(player.transform.position);}
         }
     }
+}
 }

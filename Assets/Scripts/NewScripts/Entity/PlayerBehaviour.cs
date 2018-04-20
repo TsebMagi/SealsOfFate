@@ -4,7 +4,7 @@ using Combat;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+namespace Entity{
 /// <summary>
 ///     This class contains logic for processing player input and interacting with other relevant
 ///     GameObjects in the generated scene.
@@ -69,4 +69,5 @@ public class PlayerBehaviour : EntityBehaviour {
                 break;
         }
     }
+}
 }

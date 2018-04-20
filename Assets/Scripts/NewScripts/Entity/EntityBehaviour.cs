@@ -1,11 +1,12 @@
 using UnityEngine;
+namespace Entity{
 //Class used to wrap Entity Data up together
 public abstract class EntityBehaviour : MonoBehaviour {
     public int _maxHealth;
     public int currentHealth;
     public int _maxMana;
     public int currentMana;
-    private bool alive;
+    private bool _alive;
     public int xp;
     public float moveSpeed;
     public Combat.DefenseInfo defenseInfo;
@@ -16,17 +17,18 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public virtual void Start () {
         currentHealth = _maxHealth;
         currentMana = _maxMana;
-        alive = true;
+        _alive = true;
         rgb2d = GetComponent<Rigidbody2D>();
 	}
     /// <summary>
     /// Used by attacker when entity is attacked, to calculate Damage taken by this entity
     /// </summary>
     /// <param name="AttackerCD"> The attacking entities Combat Data </param>
-    public void RecieveAttack(Combat.AttackInfo AInfo){
-        this.currentHealth -= AInfo.Damage;
+    public void RecieveAttack(Combat.AttackBehaviour AInfo){
+        this.currentHealth -= AInfo.attack.Damage;
+        rgb2d.AddForce(AInfo.GetComponent<Rigidbody2D>().transform.position*AInfo.attack.forceToApply*-1);
         if(this.currentHealth <= 0){
-            alive = false;
+            _alive = false;
         }
     }
     public virtual void CreateAttack(Vector2 target){
@@ -36,9 +38,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
     }
 
     public virtual void Update(){
-        if(!alive){
+        if(!_alive){
             Destroy(this.gameObject);
             // TODO apply Experience to player
         }
     }
+}
 }

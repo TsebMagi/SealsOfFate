@@ -86,10 +86,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1881486407551756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5fc858cc2036664da89767954c8f00e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1675d272c90f7174d878e887e7d57263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackData: {fileID: 0}
+  attack:
+    Damage: 0
+    DamageType: 0
+    Description: 
+    forceToApply: 0
+  timeToLive: 1
   destroyAfterCollision: 1
 --- !u!212 &212840818124228198
 SpriteRenderer:
