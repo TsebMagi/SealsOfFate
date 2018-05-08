@@ -5,7 +5,7 @@ namespace Combat {
     ///     Information about defense
     /// </summary>
     [Serializable]
-    public class DefenseInfo : UnityEngine.Object {
+    public class DefenseStats : UnityEngine.Object {
         private const int MaxDamageMitigation = 100;
         private byte _damageMitigation;
 
@@ -15,8 +15,8 @@ namespace Combat {
         /// </summary>
         /// <param name="damageType">The type of damage being mitigated</param>
         /// <param name="damageMitigation">A value from 0 to 100. Values over 100 are forced to 100.</param>
-        public DefenseInfo(DamageType damageType, byte damageMitigation) {
-            DamageType = damageType;
+        public DefenseStats(DamageType[] damageTypes, byte damageMitigation) {
+            DamageType = damageTypes;
 
             DamageMitigation = damageMitigation;
         }
@@ -24,7 +24,7 @@ namespace Combat {
         /// <summary>
         ///     The type of damage mitigated
         /// </summary>
-        public DamageType DamageType { get; set; }
+        public DamageType[] DamageType { get; set; }
 
         /// <summary>
         ///     The percentage (0 to 100) of damage mitigated

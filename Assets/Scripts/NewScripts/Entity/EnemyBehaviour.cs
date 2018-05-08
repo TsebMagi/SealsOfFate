@@ -15,7 +15,10 @@ public class EnemyBehaviour : EntityBehaviour{
     public float awakeDistance;
     /// <summary>Reference to the Player Object</summary>
     public float sleepDistance;
+    /// <summary>Frequency of attack in seconds</summary>
     public float attackSpeed;
+    /// <summary>Internal timer to launch attacks</summary>
+    private float attackTimer;
     private GameObject player;
     /// <summary>Wether the enemy is awake</summary>
     private bool _awake;
@@ -31,6 +34,11 @@ public class EnemyBehaviour : EntityBehaviour{
     /// </summary>
     public override void Update(){
         base.Update();
+        attackTimer -= Time.deltaTime;
+        if(attackTimer <=0){
+            CreateAttack((player.transform.position-this.transform.position).normalized);
+            attackTimer = attackSpeed;
+        }
     }
     /// <summary>
     ///     Moves the Enemy based on preferences
@@ -45,7 +53,6 @@ public class EnemyBehaviour : EntityBehaviour{
             if(distToPlayer > sleepDistance) {_awake = false;}
             else if(distToPlayer < minRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed*-1);}
             else if(distToPlayer >maxRange){rgb2d.AddForce((toPlayer).normalized*moveSpeed);}
-            else{CreateAttack(player.transform.position);}
         }
     }
 }

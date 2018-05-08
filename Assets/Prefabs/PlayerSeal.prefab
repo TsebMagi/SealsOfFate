@@ -78,7 +78,6 @@ GameObject:
   - component: {fileID: 61280125129859810}
   - component: {fileID: 114307012318739950}
   - component: {fileID: 95447176933827224}
-  - component: {fileID: 114003339879714040}
   m_Layer: 9
   m_Name: PlayerSeal
   m_TagString: Player
@@ -243,35 +242,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114003339879714040
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1780647233420238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2623c5733294db892209dd6b492116b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackTags: []
-  _defenseEffects: []
-  _defenseTags: []
-  Armor: 0
-  Blocking: 0
-  DamageReduction: 0
-  DefenseInfo: {fileID: 0}
-  Evasion: 0
-  HealthPoints: 100
-  ManaPoints: 100
-  SealieAttack:
-    Damage: 25
-    DamageType: 0
-    Description: A vicious nose boop
-  UnsealieAttack:
-    Damage: 250
-    DamageType: 3
-    Description: Fart power
 --- !u!114 &114020608188213990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,14 +280,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b40269604944247b483a26c1f34607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  maxHealth: 100
   currentHealth: 0
-  _maxMana: 100
+  maxMana: 0
   currentMana: 0
+  _alive: 0
   xp: 0
   moveSpeed: 20
-  combatData: {fileID: 114003339879714040}
+  defenseInfo: {fileID: 0}
+  meleeAttack: {fileID: 0}
+  rangedAttack: {fileID: 0}
   healthBar: {fileID: 224337399914155692}
+  _animator: {fileID: 0}
 --- !u!114 &114410652489229368
 MonoBehaviour:
   m_ObjectHideFlags: 1

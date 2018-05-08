@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 61651863353038018}
   - component: {fileID: 95572330710232968}
   - component: {fileID: 114061717239179980}
-  - component: {fileID: 114238090809140922}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -171,48 +170,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c2810a2b5e49cf4aac0daf4b5d45a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1
+  maxHealth: 20
   currentHealth: 0
-  _maxMana: 1
+  maxMana: 0
   currentMana: 0
+  _alive: 0
   xp: 0
   moveSpeed: 10
-  combatData: {fileID: 0}
-  attack: {fileID: 1881486407551756, guid: 8907b9a6b37aebf4498872549c7caf4f, type: 2}
+  defenseInfo: {fileID: 0}
+  meleeAttack: {fileID: 0}
+  rangedAttack: {fileID: 1881486407551756, guid: 8907b9a6b37aebf4498872549c7caf4f,
+    type: 2}
   healthBar: {fileID: 224925869110510748}
+  _animator: {fileID: 0}
   maxRange: 5
   minRange: 2
   awakeDistance: 10
   sleepDistance: 15
---- !u!114 &114238090809140922
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1855614962614306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2623c5733294db892209dd6b492116b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackTags: []
-  _defenseEffects: []
-  _defenseTags: []
-  Armor: 0
-  Blocking: 0
-  DamageReduction: 0
-  DefenseInfo: {fileID: 0}
-  Evasion: 0
-  HealthPoints: 50
-  ManaPoints: 0
-  SealieAttack:
-    Damage: 10
-    DamageType: 0
-    Description: The Truth
-  UnsealieAttack:
-    Damage: 20
-    DamageType: 2
-    Description: Lies
+  attackSpeed: 1
 --- !u!114 &114562316860208878
 MonoBehaviour:
   m_ObjectHideFlags: 1

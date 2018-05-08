@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50649026469195862}
   - component: {fileID: 114142471253362296}
   m_Layer: 11
-  m_Name: BasicAttack
+  m_Name: BasicRangedAttack
   m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -86,16 +86,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1881486407551756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1675d272c90f7174d878e887e7d57263, type: 3}
+  m_Script: {fileID: 11500000, guid: 49d7cdffb9529d04eaee3eecd1328f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack:
-    Damage: 0
-    DamageType: 0
-    Description: 
-    forceToApply: 0
-  timeToLive: 1
+  damage: 10
+  damageType: 
+  description: 
+  forceToApply: 15
+  friendlyFire: 0
+  timeToLive: 5
   destroyAfterCollision: 1
+  moveSpeed: 5
 --- !u!212 &212840818124228198
 SpriteRenderer:
   m_ObjectHideFlags: 1

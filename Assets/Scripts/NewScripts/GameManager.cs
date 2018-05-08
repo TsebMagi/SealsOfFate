@@ -27,7 +27,7 @@ namespace Assets.Scripts{
             else if (instance != this){
                 Destroy(gameObject);
             }
-            Instantiate(player,new Vector3(0,0,0),Quaternion.identity);
+            Instantiate(player,new Vector2(0,0),Quaternion.identity);
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(player);
             // Grab the currently attached levelManager script
