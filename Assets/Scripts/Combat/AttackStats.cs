@@ -23,15 +23,15 @@ namespace Combat {
         /// <summary>
         ///     Creates a new Attack
         /// </summary>
-        /// <param name="damage">The amount of pain to inflict</param>
-        /// <param name="damageType">The manner in which it is inflicted</param>
-        /// <param name="forceToApply">The amount of force this attack inflicts</param>
-        /// <param name="description">A human readable description (such as "laserjet printer")</param>
-        public AttackStats(int damage, DamageType[] damageType, float forceToApply ,string description) {
-            Damage = damage;
-            DamageType = damageType;
-            Description = description;
-            ForceToApply = forceToApply;
+        /// <param name="Damage">The amount of pain to inflict</param>
+        /// <param name="DamageType">The manner in which it is inflicted</param>
+        /// <param name="ForceToApply">The amount of force this attack inflicts</param>
+        /// <param name="Description">A human readable description (such as "laserjet printer")</param>
+        public AttackStats(int Damage, DamageType[] DamageType, float ForceToApply ,string Description) {
+            damage = Damage;
+            damageType = DamageType;
+            description = Description;
+            forceToApply = ForceToApply;
         }
 
         public virtual void Update(){}
@@ -65,12 +65,13 @@ namespace Combat {
         ///     Vector to move toward for Ranged Attacks and Vector to calculate from for Melee Attacks
         /// </summary>
         private Vector2 targetVector;
-
-        public string Description { get; set; }
-        public float ForceToApply { get; set; }
-        public bool FriendlyFire { get; set; }
-        public DamageType[] DamageType { get; set; }
-        public int Damage { get; set; }
-        public Vector2 TargetVector { get; set; }
+        public int Damage { get{return damage;} set{damage = value;} }
+        public DamageType[] DamageType { get{return damageType;} set{damageType=value;} }
+        public string Description { get{return description;} set{description = value;} }
+        public float ForceToApply { get{return forceToApply;} set{forceToApply = value;} }
+        public bool FriendlyFire { get{return friendlyFire;} set{friendlyFire = value;} }
+        public Vector2 TargetVector { get{return targetVector;} set {targetVector = value;} }
+        [SerializeField]
+        public int Test{get; set;}
     }
 }

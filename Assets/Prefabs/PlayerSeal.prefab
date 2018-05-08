@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  maxMana: 0
+  maxMana: 100
   currentMana: 0
   _alive: 0
   xp: 0

@@ -4,8 +4,8 @@ namespace Entity{
 //Class used to wrap Entity Data up together
 public abstract class EntityBehaviour : MonoBehaviour {
     public virtual void Start () {
-        CurrentHealth = MaxHealth;
-        CurrentMana = MaxMana;
+        currentHealth = MaxHealth;
+        currentMana = MaxMana;
         _alive = true;
         rgb2d = GetComponent<Rigidbody2D>();
 	}
@@ -15,8 +15,9 @@ public abstract class EntityBehaviour : MonoBehaviour {
     /// <param name="AInfo"> The attacking data </param>
     public void RecieveAttack(Combat.AttackStats AInfo){
         Debug.Log(this.tag+" was attacked!");
-        this.CurrentHealth -= AInfo.Damage;
-        if(this.CurrentHealth <= 0){
+        this.currentHealth -= AInfo.Damage;
+        Debug.Log(AInfo.Damage+" was taken. Health is now: "+this.currentHealth);
+        if(this.currentHealth <= 0){
             _alive = false;
         }
     }
@@ -47,7 +48,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
         [SerializeField]
         public float moveSpeed;
         [SerializeField]
-        private Combat.DefenseStats defenseInfo;
+        private Combat.DefenseStats defenseStats;
         [SerializeField]
         private GameObject meleeAttack;
         [SerializeField]
@@ -58,14 +59,14 @@ public abstract class EntityBehaviour : MonoBehaviour {
         private Animator _animator;
     protected Rigidbody2D rgb2d;
 
-        public int MaxHealth { get; set; }
-        public int CurrentHealth { get; set; }
-        public int MaxMana { get; set; }
-        public int CurrentMana { get; set; }
-        public int Xp { get; set; }
-        public DefenseStats DefenseInfo { get; set; }
-        public RectTransform HealthBar { get; set; }
-        public GameObject RangedAttack { get; set; }
-        public GameObject MeleeAttack{get; set;}
+        public int MaxHealth { get{return maxHealth;} set{maxHealth=value;} }
+        public int CurrentHealth { get{return currentHealth;} set{currentHealth=value;} }
+        public int MaxMana { get{return maxMana;} set{maxMana=value;} }
+        public int CurrentMana { get{return currentHealth;} set{currentHealth=value;} }
+        public int Xp { get{return xp;} set{xp=value;} }
+        public DefenseStats DefenseInfo { get{return defenseStats;} set{defenseStats=value;} }
+        public RectTransform HealthBar { get{return healthBar;} set{healthBar=value;} }
+        public GameObject RangedAttack { get{return rangedAttack;} set{rangedAttack=value;} }
+        public GameObject MeleeAttack{ get{return meleeAttack;} set{meleeAttack=value;} }
     }
 }

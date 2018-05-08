@@ -16,7 +16,6 @@ public class RangedAttack : AttackStats {
 		if(timeToLive<=0){Destroy(this.gameObject);}
 		else{
 			this.GetComponent<Rigidbody2D>().velocity = TargetVector * moveSpeed;
-			
 		}
 
 	}
@@ -40,9 +39,9 @@ public class RangedAttack : AttackStats {
 		///	</summary>
 		private bool tracking;
 
-        public float TimeToLive { get; set; }
-        public bool DestroyAfterCollision { get; set; }
-        public float MoveSpeed { get; set; }
-        public bool Tracking { get; set; }
+        public float TimeToLive { get{return timeToLive;} set{timeToLive=value;} }
+        public bool DestroyAfterCollision { get{return destroyAfterCollision;} set{destroyAfterCollision = value;} }
+        public float MoveSpeed { get{return moveSpeed;} set{moveSpeed=value;} }
+        public bool Tracking { get{return tracking;} set{tracking=value;} }
     }
 }

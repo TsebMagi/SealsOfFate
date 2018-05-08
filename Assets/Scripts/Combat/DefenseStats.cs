@@ -1,11 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Combat {
     /// <summary>
     ///     Information about defense
     /// </summary>
     [Serializable]
-    public class DefenseStats : UnityEngine.Object {
+    public class DefenseStats {
         private const int MaxDamageMitigation = 100;
         private byte _damageMitigation;
 
@@ -16,7 +17,7 @@ namespace Combat {
         /// <param name="damageType">The type of damage being mitigated</param>
         /// <param name="damageMitigation">A value from 0 to 100. Values over 100 are forced to 100.</param>
         public DefenseStats(DamageType[] damageTypes, byte damageMitigation) {
-            DamageType = damageTypes;
+            DamageTypes = damageTypes;
 
             DamageMitigation = damageMitigation;
         }
@@ -24,7 +25,7 @@ namespace Combat {
         /// <summary>
         ///     The type of damage mitigated
         /// </summary>
-        public DamageType[] DamageType { get; set; }
+        public DamageType[] DamageTypes { get; set; }
 
         /// <summary>
         ///     The percentage (0 to 100) of damage mitigated
