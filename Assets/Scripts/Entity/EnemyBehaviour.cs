@@ -31,8 +31,8 @@ public class EnemyBehaviour : EntityBehaviour{
     public override void Update(){
         base.Update();
         attackTimer -= Time.deltaTime;
-        if(attackTimer <=0){
-            CreateRangedAttack((player.transform.position-this.transform.position).normalized);
+        if(attackTimer <=0 && _awake){
+            CreateRangedAttack((player.transform.position-this.transform.position));
             attackTimer = attackSpeed;
         }
     }

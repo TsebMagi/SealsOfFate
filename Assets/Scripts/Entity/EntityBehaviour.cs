@@ -21,14 +21,13 @@ public abstract class EntityBehaviour : MonoBehaviour {
         }
     }
     public virtual void CreateRangedAttack(Vector2 target){
-        var spawn = (target - (Vector2)transform.position).normalized;
-        var newAttack = Instantiate(rangedAttack,(Vector2)transform.position+spawn,Quaternion.identity);
+        var newAttack = Instantiate(rangedAttack,(Vector2)this.transform.position+target.normalized,Quaternion.identity);
         newAttack.GetComponent<RangedAttack>().TargetVector = target;
     }
 
     public virtual void Update(){
         if(!_alive){
-            Destroy(this);
+            Destroy(this.gameObject);
             // TODO apply Experience to player
         }
     }

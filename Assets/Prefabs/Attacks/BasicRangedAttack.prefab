@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d7cdffb9529d04eaee3eecd1328f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   damage: 10
   damageType: 
   description: 
@@ -96,7 +97,7 @@ MonoBehaviour:
   friendlyFire: 0
   timeToLive: 5
   destroyAfterCollision: 1
-  moveSpeed: 5
+  moveSpeed: 1
 --- !u!212 &212840818124228198
 SpriteRenderer:
   m_ObjectHideFlags: 1

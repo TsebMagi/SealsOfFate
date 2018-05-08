@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224323353270508106}
   - component: {fileID: 222334534290472740}
   - component: {fileID: 114831050093013070}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224176737697671752}
   - component: {fileID: 222256021555962318}
   - component: {fileID: 114562316860208878}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 223327084692508260}
   - component: {fileID: 114770437114799794}
   - component: {fileID: 114861206819013130}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: Healthbar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   _alive: 0
   xp: 0
   moveSpeed: 10
-  defenseInfo: {fileID: 0}
+  defenseStats: {fileID: 0}
   meleeAttack: {fileID: 0}
   rangedAttack: {fileID: 1881486407551756, guid: 8907b9a6b37aebf4498872549c7caf4f,
     type: 2}
