@@ -3,46 +3,40 @@ using Combat;
 using UnityEngine;
 namespace Entity{
 /// <summary>
-///     This class is the general enemy class. It extends MovingObject and is expected to be extended by more specific
+///     This class is the general enemy class. It extends Entity and is expected to be extended by more specific
 ///     classes for particular enemy behavior. It defines general functions that most enemies will need.
 /// </summary>
 public class EnemyBehaviour : EntityBehaviour{
     /// <summary>The maximum range for an enemy. Enemies will try to stay below this range </summary>
     public float maxRange;
-    /// <summary>The minimum range for an enemy. Enemies will try to stay above this range</summary>
+    /// <summary>The minimum range for an enemy. Enemies will try to stay above this range </summary>
     public float minRange;
-    /// <summary>How close the player can get before the enemy wakes up</summary>
+    /// <summary>How close the player can get before the enemy wakes up </summary>
     public float awakeDistance;
-    /// <summary>Reference to the Player Object</summary>
+    /// <summary>Reference to the Player Object </summary>
     public float sleepDistance;
-    /// <summary>Frequency of attack in seconds</summary>
+    /// <summary>Frequency of attack in seconds </summary>
     public float attackSpeed;
-    /// <summary>Internal timer to launch attacks</summary>
+    /// <summary>Internal timer to launch attacks </summary>
     private float attackTimer;
     private GameObject player;
-    /// <summary>Wether the enemy is awake</summary>
+    /// <summary>Wether the enemy is awake </summary>
     private bool _awake;
-    /// <summary>
-    ///     Kicks off baseclass start and find the player
-    /// </summary>
+    /// <summary>Kicks off baseclass start and find the player </summary>
     public override void Start(){
         base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    /// <summary>
-    ///     checks distance to player and wakes up or sleeps depending on that distance
-    /// </summary>
+    /// <summary>checks distance to player and wakes up or sleeps depending on that distance </summary>
     public override void Update(){
         base.Update();
         attackTimer -= Time.deltaTime;
         if(attackTimer <=0){
-            CreateAttack((player.transform.position-this.transform.position).normalized);
+            CreateRangedAttack((player.transform.position-this.transform.position).normalized);
             attackTimer = attackSpeed;
         }
     }
-    /// <summary>
-    ///     Moves the Enemy based on preferences
-    /// </summary>
+    /// <summary>Moves the Enemy based on preferences </summary>
     void FixedUpdate(){
         var distToPlayer = Vector2.Distance(player.transform.position, transform.position);
         if(!_awake){

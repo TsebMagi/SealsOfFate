@@ -9,11 +9,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
         _alive = true;
         rgb2d = GetComponent<Rigidbody2D>();
 	}
-    /// <summary>
-    /// Used by attacker when entity is attacked, to calculate Damage taken by this entity
-    /// </summary>
+    /// <summary>Used by attacker when entity is attacked, to calculate Damage taken by this entity </summary>
     /// <param name="AInfo"> The attacking data </param>
     public void RecieveAttack(Combat.AttackStats AInfo){
+        //TODO: Implement Healthbar animation / update
         Debug.Log(this.tag+" was attacked!");
         this.currentHealth -= AInfo.Damage;
         Debug.Log(AInfo.Damage+" was taken. Health is now: "+this.currentHealth);
@@ -21,7 +20,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
             _alive = false;
         }
     }
-    public virtual void CreateAttack(Vector2 target){
+    public virtual void CreateRangedAttack(Vector2 target){
         var spawn = (target - (Vector2)transform.position).normalized;
         var newAttack = Instantiate(rangedAttack,(Vector2)transform.position+spawn,Quaternion.identity);
         newAttack.GetComponent<RangedAttack>().TargetVector = target;
@@ -29,7 +28,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
 
     public virtual void Update(){
         if(!_alive){
-            Destroy(this.gameObject);
+            Destroy(this);
             // TODO apply Experience to player
         }
     }

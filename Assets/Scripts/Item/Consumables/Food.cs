@@ -5,22 +5,16 @@ using UnityEngine;
 ///     A food consumable that applies some manner of health to a player
 /// </summary>
 public class Food : Consumable {
-    /// <summary>
-    ///     Default constructor
-    /// </summary>
+    /// <summary>Default constructor </summary>
     public Food() {
         Multiplier = 1;
         HealthMod = 5;
     }
 
-    /// <summary>
-    ///     The health modifier
-    /// </summary>
+    /// <summary>The health modifier </summary>
     public ushort HealthMod { get; set; }
 
-    /// <summary>
-    ///     The health multiplier
-    /// </summary>
+    /// <summary>The health multiplier </summary>
     public ushort Multiplier { get; set; }
 
     /// <summary>

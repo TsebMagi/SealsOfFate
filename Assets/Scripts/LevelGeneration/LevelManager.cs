@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Assets.Scripts.LevelGeneration {
-
+//TODO: Cleanup and comment all of Level Generation Folder
     [System.Serializable]
     /// <summary> The levelManager Class handles the level generation for each level </summary>
     public class LevelManager : MonoBehaviour {

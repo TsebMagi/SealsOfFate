@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//TODO: examine and implement entire Consumable Hierarchy
 /// <summary>
 /// Consumable object - does something to the critter picking it up
 /// </summary>

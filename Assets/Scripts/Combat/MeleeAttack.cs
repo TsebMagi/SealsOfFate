@@ -1,9 +1,9 @@
 using UnityEngine;
 using System;
-
+//TODO: Design and Implement class
 namespace Combat{
     public class MeleeAttack : AttackStats {
-        MeleeAttack(int damage, DamageType[] damageTypes, float forceToApply, string description):base(damage,damageTypes,forceToApply,description){
+        MeleeAttack(AttackType Type, int Damage, DamageType[] DamageTypes, float ForceToApply, string Description):base(Type,Damage,DamageTypes,ForceToApply,Description){
 
         }
     }

@@ -2,7 +2,7 @@
 using Assets.Scripts.LevelGeneration;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//TODO: cleanup and comment Game Manager
 
 // Level Manager for the Seals of Fate Handles creating the level and
 // delegates the room creation 
