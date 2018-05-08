@@ -288,7 +288,8 @@ MonoBehaviour:
   xp: 0
   moveSpeed: 20
   defenseStats: {fileID: 0}
-  meleeAttack: {fileID: 0}
+  meleeAttack: {fileID: 1258728629673654, guid: a2f062d350dbd754d8c079adf9dadddc,
+    type: 2}
   rangedAttack: {fileID: 0}
   healthBar: {fileID: 224337399914155692}
   _animator: {fileID: 0}

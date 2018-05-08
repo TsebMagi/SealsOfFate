@@ -25,6 +25,16 @@ public abstract class EntityBehaviour : MonoBehaviour {
         newAttack.GetComponent<RangedAttack>().TargetVector = target;
     }
 
+    public void OnCollisionEnter2D(Collision2D other){
+        if(this.MeleeAttack != null){
+            Debug.Log(this.tag+" Attac!");
+            other.gameObject.SendMessage("RecieveAttack", this.MeleeAttack.GetComponent<Combat.MeleeAttack>(),options:SendMessageOptions.DontRequireReceiver);
+        }
+        else{
+            Debug.Log("No Melee Attack to use!");
+        }
+    }
+
     public virtual void Update(){
         if(!_alive){
             Destroy(this.gameObject);

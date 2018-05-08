@@ -12,7 +12,6 @@ namespace Combat {
         Cold,
         Mana
     }
-    //TODO: Implement drop down selection for Attack Types
     [Serializable]
     public enum AttackType{
         Sealie,
@@ -38,6 +37,7 @@ namespace Combat {
         }
 
         public virtual void Update(){}
+        //TODO: Implement special effect system
         public virtual void SpecialEffect(){return;}
         /// <summary>Type of attack Seelie, or Unsealie </summary>
         [SerializeField]
