@@ -19,6 +19,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
         if(this.currentHealth <= 0){
             _alive = false;
         }
+        this.rgb2d.AddForce((AInfo.transform.position-this.transform.position).normalized*AInfo.ForceToApply*-1);
     }
     public virtual void CreateRangedAttack(Vector2 target){
         var newAttack = Instantiate(rangedAttack,(Vector2)this.transform.position+target.normalized,Quaternion.identity);

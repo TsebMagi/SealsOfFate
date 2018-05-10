@@ -93,7 +93,7 @@ MonoBehaviour:
   damage: 10
   damageType: 
   description: 
-  forceToApply: 15
+  forceToApply: 200
   friendlyFire: 0
   timeToLive: 5
   destroyAfterCollision: 1

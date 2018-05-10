@@ -24,14 +24,10 @@ namespace Combat {
             DamageMitigation = damageMitigation;
         }
 
-        /// <summary>
-        ///     The type of damage mitigated
-        /// </summary>
+        /// <summary>The type of damage mitigated </summary>
         public DamageType[] DamageTypes { get{return damageTypes;} set{damageTypes=value;} }
 
-        /// <summary>
-        ///     The percentage (0 to 100) of damage mitigated
-        /// </summary>
+        /// <summary>The percentage (0 to 100) of damage mitigated </summary>
         public int DamageMitigation {
             get { return _damageMitigation; }
             private set { _damageMitigation = (byte) (value > MaxDamageMitigation ? MaxDamageMitigation : value); }

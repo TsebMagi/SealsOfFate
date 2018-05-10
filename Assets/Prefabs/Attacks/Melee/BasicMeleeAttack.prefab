@@ -55,5 +55,5 @@ MonoBehaviour:
   damage: 20
   damageType: 
   description: A Viscious Nose Boop
-  forceToApply: 30
+  forceToApply: 1000
   friendlyFire: 0
