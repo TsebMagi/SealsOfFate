@@ -26,6 +26,10 @@ public abstract class EntityBehaviour : MonoBehaviour {
         newAttack.GetComponent<RangedAttack>().TargetVector = target;
     }
 
+    public virtual void MoveEntity(Vector2 direction){
+        rgb2d.AddForce(direction*moveSpeed);
+    }
+
     public void OnCollisionEnter2D(Collision2D other){
         if(this.MeleeAttack != null){
             Debug.Log(this.tag+" Attac!");
