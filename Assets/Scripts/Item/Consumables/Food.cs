@@ -7,15 +7,17 @@ using UnityEngine;
 public class Food : Consumable {
     /// <summary>Default constructor </summary>
     public Food() {
-        Multiplier = 1;
-        HealthMod = 5;
+    }
+    public Food(ushort healthMod, ushort multiplier){
+        this.healthMod = healthMod;
+        this.multiplier = multiplier;
     }
 
     /// <summary>The health modifier </summary>
-    public ushort HealthMod { get; set; }
+    public ushort HealthMod { get{return healthMod;} set{healthMod=value;} }
 
     /// <summary>The health multiplier </summary>
-    public ushort Multiplier { get; set; }
+    public ushort Multiplier { get{return multiplier;} set{multiplier=value;} }
 
     /// <summary>
     ///     Increases the player's health by HealthMod * Multiplier.
@@ -23,5 +25,11 @@ public class Food : Consumable {
     ///     different amounts of health.
     /// </summary>
     public override void Consume() {
+        base.Consume();
     }
+
+    [SerializeField]
+    private ushort healthMod;
+    [SerializeField]
+    private ushort multiplier;
 }

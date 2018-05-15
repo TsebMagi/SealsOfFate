@@ -18,13 +18,6 @@ public class PlayerBehaviour : EntityBehaviour {
     private void OnDestroy() {
         Debug.Log("Player Destroyed");
     }
-    /// <summary>Handles player movement </summary>
-    void FixedUpdate() {
-    }
-    /// <summary>Handles player input other than movement </summary>
-    public override void Update(){
-        base.Update();
-    }
     /// <summary>Handles how the player should interact with different collisions </summary>
     /// <param name="other">Object that was collided with by this player entity</param>
     private void OnTriggerEnter2D(Collider2D other) {
@@ -38,9 +31,8 @@ public class PlayerBehaviour : EntityBehaviour {
             case "Pick Up":
                 // Disable the food object the player collided with.
                 Debug.Log("The Pick Up has been encountered!");
-                other.gameObject.SetActive(false);
-                var food = other.gameObject.GetComponent<Food>();
-                food.Consume();
+                var pickUp = other.gameObject.GetComponent<IInteractable>();
+                pickUp.Interact();
                 break;
             case "Wall":
                 Debug.Log("Wall Hit");

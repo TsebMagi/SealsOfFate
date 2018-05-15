@@ -12,14 +12,23 @@ public abstract class EntityBehaviour : MonoBehaviour {
     /// <summary>Used by attacker when entity is attacked, to calculate Damage taken by this entity </summary>
     /// <param name="AInfo"> The attacking data </param>
     public void RecieveAttack(Combat.AttackStats AInfo){
-        //TODO: Implement Healthbar animation / update
         Debug.Log(this.tag+" was attacked!");
-        this.currentHealth -= AInfo.Damage;
-        Debug.Log(AInfo.Damage+" was taken. Health is now: "+this.currentHealth);
+        if(AInfo.Damage != 0){
+            TakeDamage(AInfo.Damage);
+        }
+        if(AInfo.ForceToApply != 0){
+            this.rgb2d.AddForce((AInfo.transform.position-this.transform.position).normalized*AInfo.ForceToApply*-1);
+        }
+    }
+    public void TakeDamage(int Damage){
+        //TODO: Implement Healthbar animation / update
+        currentHealth -= Damage;
+        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+          Debug.Log(Damage+" was taken. Health is now: "+this.currentHealth);
         if(this.currentHealth <= 0){
             _alive = false;
+            KillEntity();
         }
-        this.rgb2d.AddForce((AInfo.transform.position-this.transform.position).normalized*AInfo.ForceToApply*-1);
     }
     public virtual void CreateRangedAttack(Vector2 target){
         var newAttack = Instantiate(rangedAttack,(Vector2)this.transform.position+target.normalized,Quaternion.identity);
@@ -39,12 +48,9 @@ public abstract class EntityBehaviour : MonoBehaviour {
             Debug.Log("No Melee Attack to use!");
         }
     }
-
-    public virtual void Update(){
-        if(!_alive){
-            Destroy(this.gameObject);
-            // TODO apply Experience to player
-        }
+    public void KillEntity(){
+        //TODO: deal with Experience
+        Destroy(this.gameObject);
     }
         [SerializeField]
         private int maxHealth;

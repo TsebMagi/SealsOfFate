@@ -28,8 +28,7 @@ public class EnemyBehaviour : EntityBehaviour{
         player = GameObject.FindGameObjectWithTag("Player");
     }
     /// <summary>checks distance to player and wakes up or sleeps depending on that distance </summary>
-    public override void Update(){
-        base.Update();
+    public void Update(){
         attackTimer -= Time.deltaTime;
         if(attackTimer <=0 && _awake){
             CreateRangedAttack((player.transform.position-this.transform.position));
