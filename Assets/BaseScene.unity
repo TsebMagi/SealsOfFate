@@ -108,34 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1117923117
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1117923118}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1117923118
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1117923117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 648.6702, y: 651.41925, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796545499
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +181,7 @@ GameObject:
   - component: {fileID: 1978801243}
   - component: {fileID: 1978801242}
   - component: {fileID: 1978801241}
+  - component: {fileID: 1978801244}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -243,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLevel: 0
-  playerHealth: 0
-  player: {fileID: 1780647233420238, guid: 84d5fa99bfd488747bf2969b8fa96a23, type: 2}
+  playerHealth: 100
+  player: {fileID: 1806588048622522, guid: 5b9d5ded38dbb604b934ac5e392156fc, type: 2}
 --- !u!4 &1978801243
 Transform:
   m_ObjectHideFlags: 0
@@ -259,3 +232,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978801244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1978801240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da1fa48dd86ab64dbdcdd766361098c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

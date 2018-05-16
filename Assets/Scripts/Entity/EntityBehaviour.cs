@@ -23,8 +23,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     public void TakeDamage(int Damage){
         //TODO: Implement Healthbar animation / update
         currentHealth -= Damage;
-        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
-          Debug.Log(Damage+" was taken. Health is now: "+this.currentHealth);
+        Debug.Log(Damage+" was taken. Health is now: "+this.currentHealth);
         if(this.currentHealth <= 0){
             _alive = false;
             KillEntity();
