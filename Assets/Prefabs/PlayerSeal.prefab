@@ -354,7 +354,8 @@ MonoBehaviour:
   defenseStats: {fileID: 0}
   meleeAttack: {fileID: 1258728629673654, guid: a2f062d350dbd754d8c079adf9dadddc,
     type: 2}
-  rangedAttack: {fileID: 0}
+  rangedAttack: {fileID: 1881486407551756, guid: 8907b9a6b37aebf4498872549c7caf4f,
+    type: 2}
   healthBar: {fileID: 224130786189289632}
   _animator: {fileID: 0}
 --- !u!124 &124806518406997170
