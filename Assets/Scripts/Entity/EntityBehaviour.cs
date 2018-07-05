@@ -31,7 +31,7 @@ public abstract class EntityBehaviour : MonoBehaviour {
     }
     public virtual void CreateRangedAttack(Vector2 target){
         var newAttack = Instantiate(rangedAttack,(Vector2)this.transform.position+target.normalized,Quaternion.identity);
-        newAttack.GetComponent<RangedAttack>().TargetVector = target;
+        newAttack.GetComponent<MeleeAttack>().TargetVector = target;
     }
 
     public virtual void MoveEntity(Vector2 direction){
