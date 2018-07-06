@@ -2,7 +2,7 @@ Project-Wide Issues on Waffle: [![Stories in Ready](https://badge.waffle.io/legi
 
 # Seals Of Fate: Hats of Destiny; Icebergs of Doom
 
-Copyright © 2017 Brandon Craig, Evan French, Matthew Gieger, Connor Kuehl, Jeremiah Peschka, Andrew Waugh, Douglas Whitley III
+Copyright © 2017 Brandon Craig, Evan French, Matthew Gieger, Connor Kuehl, Jeremiah Peschka, Andrew Waugh, Doug Whitley
 
 ![](/Assets/UI/SoF%20Title.png)
 
@@ -22,12 +22,9 @@ Seals of Fate is a prototype rogue-like built in the Unity engine using C#. Curr
 
 ## How to Play
 
-Move with the arrow keys. Play moves in short turn-steps, after each move, all enemies and other entities in the game world move after each of your moves. To attack an enemy, move into them. Collecting fish restores HP.
-
-To win, defeat all penguins in the level. If all your HP reaches 0, you die and lose.
+Move with the arrow keys.
 
 ## Planned Features
-A sample of some of the planned features is below, but for full details, see [waffle](http://waffle.io/legitbiz/SealsOfFate) or the [issue tracker](https://github.com/legitbiz/SealsOfFate/issues).
 
 ### Upcoming
 
@@ -52,9 +49,7 @@ A sample of some of the planned features is below, but for full details, see [wa
 
 ## Status
 
-* Project-Wide issues are on [Waffle.io](http://waffle.io/legitbiz/SealsOfFate) and on the [github issues page](https://github.com/legitbiz/SealsOfFate/issues).
-
-* AI specific issues and project status can be found on the [github kanban board](https://github.com/Zonr0/SealsOfFate/projects/1) on the AI fork. If there is a conflict between the two project boards, the project-wide ones take precedence.
+* Project-Wide issues can be found on the [github issues page](https://github.com/legitbiz/SealsOfFate/issues).
 
 ## License
 
