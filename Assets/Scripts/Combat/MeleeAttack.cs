@@ -19,10 +19,6 @@ public class MeleeAttack : AttackStats {
 	public override void Update(){
 		timeToLive -= Time.deltaTime;
 		if(timeToLive<=0){Destroy(this.gameObject);}
-		else{
-			this.GetComponent<Rigidbody2D>().velocity = TargetVector * moveSpeed;
-		}
-
 	}
         /// <summary>The amount of time this attack should live on screen </summary>
 		[SerializeField]

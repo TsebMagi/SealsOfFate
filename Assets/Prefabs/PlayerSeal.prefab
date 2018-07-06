@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223510533826784606}
   - component: {fileID: 114569592331034346}
   - component: {fileID: 114565670065691838}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: HealthbarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 224130786189289632}
   - component: {fileID: 222724217283639470}
   - component: {fileID: 114337031771403822}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 224723870654721584}
   - component: {fileID: 222157644618093956}
   - component: {fileID: 114036108392337888}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 61998109681914810}
   - component: {fileID: 114928640425653566}
   - component: {fileID: 95995112078329244}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: PlayerSeal
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 92811902075881636}
   - component: {fileID: 124806518406997170}
   - component: {fileID: 81444813433591336}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

@@ -30,8 +30,20 @@ public abstract class EntityBehaviour : MonoBehaviour {
         }
     }
     public virtual void CreateRangedAttack(Vector2 target){
-        var newAttack = Instantiate(rangedAttack,(Vector2)this.transform.position+target.normalized,Quaternion.identity);
-        newAttack.GetComponent<MeleeAttack>().TargetVector = target;
+        var spawn=(Vector2)this.transform.position+target.normalized;
+        var angleToTarget=Mathf.Atan2(target.y,target.x)*Mathf.Rad2Deg;
+        var spawnQuat=Quaternion.AngleAxis(angleToTarget,Vector3.forward); 
+        var newAttack=Instantiate(rangedAttack,spawn,spawnQuat);
+        newAttack.GetComponent<RangedAttack>().TargetVector=target;
+    }
+
+    public virtual void CreateMeleeAttack(Vector2 target, GameObject parent){
+        var spawn = (Vector2)this.transform.position+target.normalized; 
+        var angleToTarget=Mathf.Atan2(target.y,target.x)*Mathf.Rad2Deg;
+        var spawnQuat=Quaternion.AngleAxis(angleToTarget-90,Vector3.forward); 
+        var newAttack=Instantiate(meleeAttack,spawn,spawnQuat);
+        newAttack.GetComponent<MeleeAttack>().TargetVector=target;
+        newAttack.transform.SetParent(parent.transform);
     }
 
     public virtual void MoveEntity(Vector2 direction){

@@ -187,6 +187,7 @@ MonoBehaviour:
   maxRange: 5
   minRange: 2
   awakeDistance: 10
+  meleeDistance: 3
   sleepDistance: 15
   attackSpeed: 1
 --- !u!114 &114562316860208878

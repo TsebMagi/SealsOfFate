@@ -56,3 +56,6 @@ TagManager:
   - name: Units
     uniqueID: 2494414023
     locked: 0
+  - name: Walls
+    uniqueID: 1449300471
+    locked: 0

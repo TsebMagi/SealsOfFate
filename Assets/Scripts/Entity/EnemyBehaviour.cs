@@ -13,6 +13,8 @@ public class EnemyBehaviour : EntityBehaviour{
     public float minRange;
     /// <summary>How close the player can get before the enemy wakes up </summary>
     public float awakeDistance;
+    /// <summary>Distance at which the enemy object will try to melee attack</summary>
+    public float meleeDistance;
     /// <summary>Reference to the Player Object </summary>
     public float sleepDistance;
     /// <summary>Frequency of attack in seconds </summary>
@@ -30,8 +32,10 @@ public class EnemyBehaviour : EntityBehaviour{
     /// <summary>checks distance to player and wakes up or sleeps depending on that distance </summary>
     public void Update(){
         attackTimer -= Time.deltaTime;
+        var distToPlayer = Vector2.Distance(player.transform.position, transform.position);
         if(attackTimer <=0 && _awake){
-            CreateRangedAttack((player.transform.position-this.transform.position));
+            if(distToPlayer <= meleeDistance){CreateMeleeAttack(player.transform.position-this.transform.position, this.gameObject);}
+            else{CreateRangedAttack(player.transform.position-this.transform.position);}
             attackTimer = attackSpeed;
         }
     }
