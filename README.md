@@ -1,5 +1,3 @@
-Project-Wide Issues on Waffle: [![Stories in Ready]()
-
 # Seals Of Fate: Hats of Destiny; Icebergs of Doom
 
 Copyright © 2017 Brandon Craig, Evan French, Matthew Gieger, Connor Kuehl, Jeremiah Peschka, Andrew Waugh, Doug Whitley
