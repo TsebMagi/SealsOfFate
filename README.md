@@ -1,4 +1,4 @@
-Project-Wide Issues on Waffle: [![Stories in Ready](https://badge.waffle.io/legitbiz/SealsOfFate.svg?label=ready&title=Ready)](http://waffle.io/legitbiz/SealsOfFate)
+Project-Wide Issues on Waffle: [![Stories in Ready]()
 
 # Seals Of Fate: Hats of Destiny; Icebergs of Doom
 
