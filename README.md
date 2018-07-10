@@ -1,5 +1,5 @@
-# Seals Of Fate: Hats of Destiny; Icebergs of Doom
-
+# Seals Of Fate: Hats of Destiny
+[![Waffle.io - Waffle Tracker](https://badge.waffle.io/TsebMagi/SealsOfFate.svg?columns=all)](https://waffle.io/TsebMagi/SealsOfFate)
 Copyright © 2017 Brandon Craig, Evan French, Matthew Gieger, Connor Kuehl, Jeremiah Peschka, Andrew Waugh, Doug Whitley
 
 ![](/Assets/UI/SoF%20Title.png)
