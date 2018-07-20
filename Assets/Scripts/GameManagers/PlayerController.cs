@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		  //Store the current horizontal input in the float moveHorizontal.
+	    //Store the current horizontal input in the float moveHorizontal.
         float moveHorizontal = Input.GetAxis ("Horizontal");
         //Store the current vertical input in the float moveVertical.
         float moveVertical = Input.GetAxis ("Vertical");
@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour {
         Vector2 movement = new Vector2 (moveHorizontal, moveVertical);
         //Call the AddForce function of our Rigidbody2D rb2d supplying movement multiplied by speed to move our player.
 		player.GetComponent<Entity.EntityBehaviour>().MoveEntity(movement);
+
+		if(Input.GetAxis("Fire1") !=0){
+			player.GetComponent<Entity.EntityBehaviour>().CreateMeleeAttack(Camera.main.ScreenToWorldPoint(Input.mousePosition)-player.transform.position, player);
+		}
 	}
 	private GameObject player;
 }
